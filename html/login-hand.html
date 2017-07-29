@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/login.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+				background-color: #efeff4;
+			}
+			.mui-content{
+				width: 100%;height: 100%;
+				background: transparent;
+			}
+			.login_img{
+				width: 5.48rem;height: 0.62rem;
+				background-image: url(../res/login/LOGO.png);
+				margin: 1.2rem auto 0;
+				background-size: 100% 100%;
+			}
+			
+			.headImg{
+				width: 2.5rem;
+				height: 1.6rem;
+				text-align: center;
+				color: #969696;
+				font-size: 0.28rem;
+				margin: 0.3rem auto 0;
+			}
+			.headImg>img{
+				width: 1.2rem;height: 1.2rem;
+				display: block;
+				margin: 0 auto;
+				border: 0.02rem solid #FFFFFF;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.headImg>span,.headImg>label{
+				font-size: 0.32rem;
+				color: #323232;
+				margin-top: 0.2rem;
+			}
+			#alert {
+				width: 100%;
+				height: 34px;line-height: 34px;
+				text-align: center;
+				margin-top: 0.2rem;
+				font-size: 0.28rem;
+				color: #FF0000;
+			}
+			#holder {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+			}
+			#cancel{
+				width: 100%;
+				height: 0.26rem;line-height: 0.26rem;
+				text-align: center;
+				font-size: 0.28rem;
+			}
+			/*.mui-locker-holder canvas{
+				width: 3rem;height: 3rem;
+			}*/
+			.mui-plus.mui-android header.mui-bar{
+				display: none;
+			}
+			.mui-plus.mui-android .mui-bar-nav~.mui-content{
+				padding: 0;
+			}
+			
+			/*hm开头的表示仅为 Hello MUI示例定义*/
+			.hm-description{
+				margin: .5em 0;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="login">
+			<div class="login_img"></div>
+			<div class="mui-content">
+				<div class="headImg">
+					<img src="../res/home3/man-img.png" alt="" />
+					<span>欢迎回来，</span><label for="">张三</label>
+				</div>
+				<div id='alert'></div>
+				<div id='holder' class="mui-locker"  
+					data-locker-width='300' data-locker-height='300'>
+				</div>
+				<div id="cancel">切换登录</div>
+			</div>
+		</div>
+		<div class="footer">
+			Copyright © 2017 - 2019 杭州翰都实业有限公司 版权所有 
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.locker.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			(function($, doc) {
+				$.init();
+				var holder = doc.querySelector('#holder'),
+					alert = doc.querySelector('#alert'),
+					record = [];
+				//处理事件
+				holder.addEventListener('done', function(event) {
+					var rs = event.detail;
+					if (rs.points.length < 4) {
+						alert.innerText = '手势密码错误，还能输入2次';
+						record = [];
+						rs.sender.clear();
+						return;
+					}
+					console.log(rs.points.join(''));
+					record.push(rs.points.join(''));
+					if (record.length >= 2) {
+						if (record[0] == record[1]) {
+							alert.innerText = '登录中...';
+							mui.openWindow({
+								url:'../index.html',
+								id:'../index.html'
+							}) 
+						}else if(record[1] != record[2]){
+							alert.innerText = '手势密码错误，还能输入2次';
+						}else if(record[3] != record[2]){
+							alert.innerText = '手势密码错误，还能输入1次';
+						}else{
+							//手势错误次数3次后的警告弹出框
+							if (mui.os.plus) { 
+				                var a = [{ 
+				                    title: "1" 
+				                }]; 
+				                plus.nativeUI.confirm( 
+					            "手势密码错误次数过多，您的账号已锁定，请联系管理员解锁",
+				                function(){
+				                	
+				                },
+				                "警告！", ["确定"] );
+				            }
+						}
+						rs.sender.clear();
+						record = [];
+					} else {
+						alert.innerText = '手势密码错误，还能输入2次';
+						rs.sender.clear();
+					}
+				});
+				$('.mui-content').on('tap','#cancel',function(){
+					mui.openWindow({
+						url:'../login.html',
+						id:'../login.html'
+					})
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

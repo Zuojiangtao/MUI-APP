@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			body{
+				background: #FFFFFF;
+			}
+			.mui-pull-right{
+				position: relative;
+			}
+			.mui-pull-right>span{
+				width: 16px;
+				height: 16px;line-height: 16px;
+				background: rgba(50,50,50,0.95);
+				color: #FFFFFF;
+				border-radius: 50%;
+				text-align: center;
+				font-size: 12px;
+				position: relative;
+				top: -1px;
+			}
+			.search{
+				width: 100%;height: 1rem;
+				background: #C9C9CE;
+				padding: 0.17rem 0.2rem;
+				overflow: hidden;
+			}
+			.search>input[type=text]{
+				width: 7.1rem;height: 0.65rem;
+				background: #FFFFFF;
+				background-image: url(../res/smicon/search-ipt.png);
+				background-position: center;
+				background-position-x: 2.9rem;
+				background-size: 0.3rem 0.3rem;
+				background-repeat: no-repeat;
+				border-radius: 0.08rem;
+				text-align: center;
+			}
+			.search>input::-webkit-input-placeholder{
+				font-size: 0.28rem;
+			}
+			ul{
+				width: 100%;height: auto;
+				background: #FFFFFF;
+				padding-left: 0.3rem;padding-right: 0.3rem;
+			}
+			ul>li{
+				width: 100%;height: 0.9rem;
+				border-bottom: 0.01rem solid #DADADA;
+			}
+			ul>li>img{
+				width: 0.3rem;height: 0.3rem;
+				position: relative;
+				top: 0.03rem;
+			}
+			ul>li>span{
+				height: 0.9rem;line-height: 0.9rem;
+				margin-left: 0.2rem;
+				font-size: 0.32rem;
+				color: #323232;
+			}
+			ul>li.select>span{
+				color: #FFAA00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">取消</a>
+		    <h1 class="mui-title">授权单据</h1>
+		    <a class="mui-action-back mui-pull-right">完成<span>2</span></a>
+		</header>
+		<div class="mui-content">
+		    <div class="search">
+		    	<input type="text" placeholder="搜索"/>
+		    </div>
+		    <ul>
+		    	<li class="select"><img src="../res/smicon/edit-img-y.png" alt="" /><span>出口询价单</span></li>
+		    	<li class="select"><img src="../res/smicon/edit-img-y.png" alt="" /><span>自营出口合同</span></li>
+		    	<li><img src="../res/smicon/edit-img-n.png" alt="" /><span>自营出口运单</span></li>
+		    </ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('ul').on('tap','li',function(){
+					var self = this;
+					var img = self.querySelector('img');
+					var num = parseInt(document.querySelector('.mui-pull-right').querySelector('span').innerText);
+					if(!self.classList.contains('select')){
+						self.classList.add('select');
+						img.setAttribute('src','../res/smicon/edit-img-y.png');
+					}else{
+						self.classList.remove('select');
+						img.setAttribute('src','../res/smicon/edit-img-n.png');
+					}
+					document.querySelector('.mui-pull-right').querySelector('span').innerText = document.querySelectorAll('li.select').length;
+				});
+				
+			});
+		</script>
+	</body>
+
+</html>

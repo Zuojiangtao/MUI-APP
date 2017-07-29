@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home0.css" />
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider" >
+			  <div class="mui-slider-group mui-slider-loop">
+			    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+			    <div class="mui-slider-item mui-slider-item-duplicate">
+			      <a href="#">
+			        <img src="../res/home0/banner1.png">
+			      </a>
+			    </div>
+			    <!-- 第一张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="../res/home0/banner1.png">
+			      </a>
+			    </div>
+			    <!-- 第二张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="../res/home0/banner1.png">
+			      </a>
+			    </div>
+			    <!-- 第三张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="../res/home0/banner1.png">
+			      </a>
+			    </div>
+			    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+			    <div class="mui-slider-item mui-slider-item-duplicate">
+			      <a href="#">
+			        <img src="../res/home0/banner1.png">
+			      </a>
+			    </div>
+			  </div>
+			  <div class="mui-slider-indicator">
+			    <div class="mui-indicator mui-active"></div>
+			    <div class="mui-indicator"></div>
+			    <div class="mui-indicator"></div>
+			  </div>
+			</div>
+			<div class="news">
+				<img src="../res/home0/1.jpg" alt="企业热点" />
+				<ul class="sp">
+					<li>
+						<span>原设计部员工张三升任项目经理</span>
+						<span>公司召开第七届员工代表大会</span>
+					</li>
+					<li>
+						<span>原设计部员工张三升任项目经理-2</span>
+						<span>公司召开第七届员工代表大会</span>
+					</li>
+					<li>
+						<span>原设计部员工张三升任项目经理-3</span>
+						<span>公司召开第七届员工代表大会</span>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-page-login" id="page-1">
+				<span>待办事项</span>
+				<ul class="page-ul">
+					<li>
+						<span id="ui-page-1">
+							0
+						</span>
+						<span>质检单</span>
+					</li>
+					<li>
+						<span id="ui-page-2">
+							7
+						</span>
+						<span>待审批</span>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-page-login" id="page-2">
+				<span>应用平台</span>
+				<ul class="page-ul">
+					<li>
+						<img src="../res/home0/appl-1.png" alt="" />
+						<span>采购催货</span>
+					</li>
+					<li>
+						<img src="../res/home0/appl-2.png" alt="" />
+						<span>质检单</span>
+					</li>
+					<li>
+						<img src="../res/home0/appl-3.png" alt="" />
+						<span>统计分析</span>
+					</li>
+					<li>
+						<img src="../res/home0/appl-4.png" alt="" />
+						<span>审批</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				//获得slider插件对象
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+				  interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				mui('.mui-content').on('tap','.news',function(){
+					mui.openWindow({
+						url: 'home0-news.html',  
+					    id: 'home0-news.html'
+					});
+				});
+				mui('#page-1').on('tap','.page-ul>li:first-child',function(){
+					mui.openWindow({
+						url: 'home0-qlt.html',  
+					    id: 'home0-qlt.html'
+					});
+				});
+				mui('#page-1').on('tap','.page-ul>li:last-child',function(){
+					mui.openWindow({
+						url: 'home2-1.html',  
+					    id: 'home2-1.html'
+					});
+				});
+				mui('#page-2').on('tap','.page-ul>li:first-child',function(){
+					mui.openWindow({
+						url: 'home0-prWorkDesk.html',  
+					    id: 'home0-prWorkDesk.html'
+					});
+				});
+				mui('#page-2').on('tap','.page-ul>li:nth-child(2)',function(){
+					mui.openWindow({
+						url: 'home0-qlt.html',  
+					    id: 'home0-qlt.html'
+					});
+				});
+				mui('#page-2').on('tap','.page-ul>li:nth-child(3)',function(){
+					mui.openWindow({
+						url: 'home0-statis.html',  
+					    id: 'home0-statis.html'
+					});
+				});
+				mui('#page-2').on('tap','.page-ul>li:nth-child(4)',function(){
+					mui.openWindow({
+						url: 'home0-appr.html',  
+					    id: 'home0-appr.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

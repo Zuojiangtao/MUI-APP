@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home3-setPhone.css" />
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">绑定手机号</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="Description">
+		    	<img src="../res/home3/setPhone-1.png" alt="" />
+		    	<p>绑定会让您的账号更加安全完成绑定后您还可以通过手机号登录</p>
+		    </div>
+		    <ul>
+		    	<li><span>国家和地区</span><a href="javascript:void(0);">中国 ></a></li>
+		    	<li>
+		    		<span style="width: 1.02rem;line-height: 0.34rem;
+		    			margin-top: 0.3rem;border-right: 0.01rem solid #646464;">+86</span>
+		    		<input type="text" placeholder="请输入手机号"/>
+		    	</li>
+		    </ul>
+		    <button id="sub-btn">立即绑定</button>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.mui-content').on('tap','#sub-btn',function(){
+					mui.openWindow({
+						url: 'home3-setPhone-2.html',  
+					    id: 'home3-setPhone-2.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

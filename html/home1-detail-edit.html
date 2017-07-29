@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home1-detail-edit.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.img>span{
+				line-height: 0.24rem;
+			}
+			/*动画加载*/
+			.fixed{
+				width: 100%;height: 100%;
+				position: fixed;
+				top: 0;left: 0;
+				z-index: 2;
+				background: rgba(0,0,0,0.2);
+			}
+			.fixed>.img-box{
+				width: 3rem;height: 3rem;
+				background: url(../res/gif/1.gif) center center no-repeat;
+				background-size: 3rem 3rem;
+				margin: 4.6rem auto 0;
+			}
+			.fixed>.img-box>span{
+				width: 100%;height: auto;
+				font-size: 0.32rem;
+				margin: 2.28rem auto 0;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-pull-left">返回</a>
+		    <h1 class="mui-title">编辑明细</h1>
+		    <a class="mui-pull-right">保存</a>
+		</header>
+		<div class="mui-content">
+		    <ul id="sec-ul">
+		    	<li><span>采购合同号：</span><input type="text" value="HD170186CO"/></li>
+		    	<li><span>明细商品：</span><input type="text" value="TBB102"/></li>
+		    	<li><span>客户货号：</span><input type="text" value="PID102"/></li>
+		    	<li><span>品名：</span><input type="text" value="96系镀铜插销（吸塑）"/></li>
+		    	<li><span class="spRed">单位：</span><input type="text" style="width: 2rem;" value="打"/></li>
+		    	<li>
+		    		<span style="width: 100%;">应质检</span>
+		    		<span class="spRed">数量：</span><input type="text" style="width: 2rem;" value="600.00"/>
+		    		<span >箱数：</span><input type="text" style="width: 2.5rem;" value="15.00"/>
+		    	</li>
+		    	<li>
+		    		<span style="width: 100%;">实际质检</span>
+		    		<span>数量：</span><input type="text" style="width: 2rem;" value="32.00"/>
+		    		<span>箱数：</span><input type="text" style="width: 2.5rem;" value="15.00"/>
+		    	</li>
+		    	<li><span>装数：</span><input type="text" value="40.00"/></li>
+		    	<li class="sec-btn">
+		    		<span>质检结论：</span>
+		    		<button id="sec-btn-1">合格</button><button id="sec-btn-2">不合格</button>
+		    	</li>
+		    	<li><span>详细质检结论：</span><label for="">详见质检照片</label></li>
+		    	<li><span>结果分类说明：</span><label for="">详见质检照片</label></li>
+		    	<li><span class="spRed">可入库（合格）数量：</span><input type="text" value="600.00"/></li>
+		    	<li>
+		    		<div class="img">
+	    				<img class="s-img" src="../res/img-upload/1.png" alt="" />
+	    				<span>DHAHSDSA-0001-正面</span>
+	    				<img class="m-img" src="../res/img-upload/img-del.png" alt="" />
+	    			</div>
+	    			<div class="img">
+	    				<img class="s-img" src="../res/img-upload/2.png" alt="" />
+	    				<span>DHAHSDSA-0001-反面</span>
+	    				<img class="m-img" src="../res/img-upload/img-del.png" alt="" />
+	    			</div>
+	    			<div class="img">
+	    				<img class="s-img" src="../res/img-upload/3.png" alt="" />
+	    				<span>DHAHSDSA-0001-左侧</span>
+	    				<img class="m-img" src="../res/img-upload/img-del.png" alt="" />
+	    			</div>
+	    			<div class="img" id="imgUpload" style="width: 1.5rem;height: 1.5rem;border: none;">
+	    				<img src="../res/img-upload/add.png" alt="" />
+	    			</div>
+		    	</li>
+		    </ul>
+		</div>
+		<!--审批记录加载动画-->
+		<div class="fixed mui-hidden">
+			<div class="img-box">
+				<!--<img src="../res/gif/1.gif" alt="" />-->
+				<span>数据保存中…</span>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.sec-btn').on('tap','button',function(){
+					var btn = this;
+					var btn_array = document.querySelectorAll('.sec-btn>button');
+					for (var i = 0; i < btn_array.length; i ++) {
+						btn_array[i].classList.remove('active');
+					}
+					btn.classList.add('active');
+				});
+				document.getElementById('imgUpload').addEventListener('tap',function(){
+					mui.openWindow({
+						url:'imgUpload.html',
+						id:'imgUpload.html'
+					})
+				},false);
+				mui('.mui-bar-nav').on('tap','.mui-pull-left',function(){
+					if(mui.os.plus){
+						plus.nativeUI.confirm("此操作将不会保存编辑信息",function(e){
+							//索引值为0，即点击的是第一个按钮。触发事件
+							if(e.index == 0){
+								mui.back();
+							}
+						},"放弃保存?",["确定","取消"]);
+					}
+				});
+				mui('.mui-bar-nav').on('tap','.mui-pull-right',function(){
+					var fixed = document.querySelector('.fixed');
+					fixed.classList.remove('mui-hidden');
+					setTimeout(function(){
+						mui.openWindow({
+							url:'home1-detail.html',
+							id:'home1-detail.html'
+						});
+						fixed.classList.add('mui-hidden');
+					},1000);
+				});
+				mui('.img').on('tap','.m-img',function(){
+					var self = this;
+					var img = self.parentNode;
+					console.log(1);
+					if(mui.os.plus){
+						plus.nativeUI.confirm("此操作将删除图片",function(e){
+							//索引值为0，即点击的是第一个按钮。触发事件
+							if(e.index == 0){
+								img.parentNode.removeChild(img);
+							}
+						},"确定删除?",["确定","取消"]);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

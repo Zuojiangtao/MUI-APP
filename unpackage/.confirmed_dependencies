@@ -1,0 +1,213 @@
+{
+	"login.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"css/login.css",
+			"res/login/login-password.png",
+			"res/login/login-name.png",
+			"css/mui.min.css",
+			"res/login/LOGO.png",
+			"css/reset.css",
+			"res/login/login-bg.png"
+		],
+		"refer": [
+			"html/login-hand.html"
+		]
+	},
+	"html/login-hand.html": {
+		"resources": [
+			"res/home3/man-img.png",
+			"js/mui.locker.js"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"html/home1.html": {
+		"resources": [
+			"res/home1/1.png",
+			"res/smicon/time.png",
+			"js/mui.picker.min.js",
+			"res/home1/2.png",
+			"res/smicon/search-btn.png",
+			"css/mui.picker.all.css",
+			"res/home1/3.png",
+			"css/wrapper.css",
+			"css/home1.css",
+			"res/smicon/slide-down.png",
+			"res/home1/search-ipt.png"
+		],
+		"refer": [
+			"html/home1-detail.html",
+			"html/search.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"html/home0.html",
+			"css/app.css",
+			"res/app-webview/nav-index_sel.png",
+			"res/app-webview/nav-mine_none.png",
+			"res/app-webview/nav-mine_sel.png",
+			"res/app-webview/nav-appr_sel.png",
+			"res/app-webview/nav-qlt_sel.png",
+			"res/app-webview/nav-index_none.png",
+			"res/app-webview/nav-appr_none.png",
+			"res/app-webview/nav-qlt_none.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/home1.html",
+			"html/home0.html",
+			"html/home3.html",
+			"login.html",
+			"html/home2.html"
+		]
+	},
+	"html/home0.html": {
+		"resources": [
+			"res/home0/appl-2.png",
+			"res/home0/1.jpg",
+			"res/home0/banner1.png",
+			"css/home0.css",
+			"res/home0/appl-4.png",
+			"res/home0/appl-1.png",
+			"res/home0/appl-3.png"
+		],
+		"refer": [
+			"html/home0-qlt.html",
+			"html/home0-prWorkDesk.html",
+			"html/home0-statis.html"
+		]
+	},
+	"html/home3.html": {
+		"resources": [
+			"res/smicon/turn-r.png",
+			"res/home3/leval.png",
+			"res/home3/hands.png",
+			"res/home3/phone.png",
+			"css/home3.css",
+			"res/home3/change-password.png"
+		],
+		"refer": [
+			"html/home3-locker.html",
+			"html/home3-setPassword.html",
+			"html/home3-setPhone-1.html"
+		]
+	},
+	"html/home2.html": {
+		"resources": [
+			"res/home2/appr-1.png",
+			"res/home2/appr-2.png",
+			"css/home2.css",
+			"res/appr-history/appr-y.png",
+			"res/home2/appr-3.png"
+		],
+		"refer": [
+			"html/home2-1-details.html"
+		]
+	},
+	"html/home1-detail.html": {
+		"resources": [
+			"res/home1-del/del-down.png",
+			"res/home1-del/del-edit.png",
+			"res/home1-del/del-up.png",
+			"res/img-upload/4.png",
+			"res/home1-del/del-load.png",
+			"res/home1-del/del-det.png",
+			"res/img-upload/3.png",
+			"res/img-upload/2.png",
+			"res/img-upload/1.png",
+			"css/home1-detail.css"
+		],
+		"refer": [
+			"html/home1-detail-edit.html"
+		]
+	},
+	"html/home1-detail-edit.html": {
+		"resources": [
+			"res/img-upload/img-del.png",
+			"css/home1-detail-edit.css",
+			"res/img-upload/add.png"
+		],
+		"refer": [
+			"html/imgUpload.html"
+		]
+	},
+	"html/home0-qlt.html": {
+		"resources": [
+			"res/gif/2.gif",
+			"res/smicon/mescroll-progress.jpg",
+			"css/mescroll.css",
+			"css/mescroll-option.css",
+			"js/mescroll.js",
+			"js/mescroll-option.js"
+		],
+		"refer": [
+			"html/home1-detail.html",
+			"html/search.html"
+		]
+	},
+	"html/imgUpload.html": {
+		"resources": [
+			"res/img-upload/img-sel.png",
+			"res/img-upload/noImg.png",
+			"js/imgUpload.js",
+			"js/textarea.js",
+			"res/img-upload/img-none.png"
+		]
+	},
+	"html/home2-1-details.html": {
+		"resources": [
+			"res/appr/1.png",
+			"res/appr/4.png",
+			"css/home2-1-details.css",
+			"res/appr/2.png",
+			"res/appr/3.png",
+			"res/smicon/slide-up.png"
+		],
+		"refer": [
+			"html/home2-1-n.html"
+		]
+	},
+	"html/home3-setPhone-1.html": {
+		"resources": [
+			"css/home3-setPhone.css",
+			"res/home3/setPhone-1.png"
+		],
+		"refer": [
+			"html/home3-setPhone-2.html"
+		]
+	},
+	"html/search.html": {
+		"resources": [
+			"res/search/3.png",
+			"res/search/2.png",
+			"res/search/0.png",
+			"res/search/1.png",
+			"res/smicon/search-ipt.png"
+		]
+	},
+	"html/home0-prWorkDesk.html": {
+		"resources": [
+			"res/smicon/edit-img-n.png",
+			"js/mescroll.js",
+			"res/home0-prWorkDesk/2.png",
+			"res/smicon/edit-img-y.png",
+			"res/home0-prWorkDesk/3.png",
+			"res/home0-prWorkDesk/1.png",
+			"res/gif/1.gif"
+		],
+		"refer": [
+			"html/home0-qlt.html"
+		]
+	},
+	"html/home0-statis.html": {
+		"refer": [
+			"html/home0-statis-1.html",
+			"html/home0-statis-2.html"
+		]
+	}
+}

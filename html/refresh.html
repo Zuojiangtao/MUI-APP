@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/common.js"></script>
+		<style>
+			
+            .mui-pull-caption {
+                background-image: url(../res/gif/2.gif);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 0.7rem;
+                height: 0.7rem;
+                font-size: 0px;
+                border-radius: 50%;
+            }
+            /*下拉刷新圆形进度条的大小和样式*/
+
+            .mui-spinner {
+                width: 32px;
+                height: 32px;
+                display: none;
+            }
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+		  	<div class="mui-scroll">
+			    <!--数据列表-->
+			    <ul class="mui-table-view mui-table-view-chevron">
+			    	
+			    </ul>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+			  	pullRefresh : {
+			    	container:"#refreshContainer",
+			    	down : {
+			      		height:50,//可选,默认50.触发下拉刷新拖动距离,
+			      		auto: true,//可选,默认false.首次加载自动下拉刷新一次
+			      		contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      		contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+			      		contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+			      		callback :function(){}
+			      			//必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			      	},
+			      	up:{
+			      		auto: true,
+			      		contentrefresh: '正在加载...',
+						callback: pullupRefresh
+			      	}
+			    }
+			});
+			function pullupRefresh(){}
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#refreshContainer').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#refreshContainer').pullRefresh().pullupLoading();
+				});
+			}
+		</script>
+	</body>
+
+</html>

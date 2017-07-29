@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home2-1-details.css" />
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">审批详情</h1>
+		</header>
+		<div class="mui-content mui-scroll">
+		    <ul id="scroll-ul">
+		    	<li><span>主题：</span><label for="">HD/BZ-PG/QC-17270</label></li>
+		    	<li><span>业务归属：</span><label for="">张三</label></li>
+		    	<li><span>制单日期：</span><label for="">2017-05-01</label></li>
+		    	<li class="li-slide down">
+		    		<span>详情</span>
+		    		<div class="right-btn">
+		    			<label for="">收起</label><img src="../res/smicon/slide-up.png" alt="" />
+		    		</div>
+		    		<ul class="slide-child">
+		    			<li><span>【发货单号】</span><label for="">1632821010-5-9</label></li>
+		    			<li><span>【销售合同号】</span><label for="">1632821010</label></li>
+		    			<li><span>【发货日期】</span><label for="">2017-6-1</label></li>
+		    			<li><span>【委托方】</span><label for="">杭州萧工工具有限公司</label></li>
+		    			<li><span>【代理费方式】</span><label for="">每美元人民币</label></li>
+		    			<li><span>【客户】</span><label for="">雅宝特实业有限公司</label></li>
+		    			<li><span>【金额】</span><label for="">24,290.50 （USD）</label></li>
+		    			<li><span>【贸易方式】</span><label for="">一般贸易</label></li>
+		    			<li><span>【收款方式描述】</span><label for="">1632821010 货后 T/T 100%  24,290.50 2016-04-22</label></li>
+		    			<li><span>【商品描述】</span><label for="">96系镀铜插销（吸塑）</label></li>
+		    		</ul>
+		    	</li>
+		    	<li class="li-slide down" id="slide-last">
+		    		<span>附件</span>
+		    		<div class="right-btn">
+		    			<label for="">收起</label><img src="../res/smicon/slide-up.png" alt="" />
+		    		</div>
+		    		<ul class="slide-child" style="margin-top: 0.3rem;padding-top: 0.1rem;">
+		    			<li>
+		    				<div class="left">
+		    					<img src="../res/appr/4.png" alt="" /><span>物流合作细节.doc</span>
+		    				</div>
+		    				<div class="right">
+		    					<span>查看</span>
+		    				</div>
+		    			</li>
+		    			<li>
+		    				<div class="left">
+		    					<img src="../res/appr/4.png" alt="" /><span>物流合作细节.doc</span>
+		    				</div>
+		    				<div class="right">
+		    					<span>查看</span>
+		    				</div>
+		    			</li>
+		    		</ul>
+		    	</li>
+		    </ul>
+		    <div id="apprResult">
+		    	<div class="appr appr-y">
+			    	<img src="../res/appr/3.png" alt="" />
+			    	<span>张鹏煜  经理审批</span>
+			    	<label for="">同意</label>
+			    	<textarea name="" id="">2017-6-6 16:45:33 
+同意该审批</textarea>
+			    </div>
+			    <!--<div class="appr appr-c">
+			    	<img src="../res/appr/1.png" alt="" />
+			    	<span>张鹏煜 财务审批</span>
+			    	<label for="">保留意见并上报</label>
+			    	<textarea name="" id="">
+			    		2017-6-6 16:45:33
+			    		需要如实审批查看，还需试用一个月后审查完毕
+						再做决定。
+			    	</textarea>
+			    </div>
+			    <div class="appr appr-n">
+			    	<img src="../res/appr/2.png" alt="" />
+			    	<span>张鹏煜 部门经理审批</span>
+			    	<label for="">驳回</label>
+			    	<textarea name="" id="">
+			    		2017-6-6 16:45:33
+			    		商品不合格，不通过审批。
+			    	</textarea>
+			    </div>-->
+		    </div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item" style="text-align: right;padding-right: 0.3rem;">
+		        <span class="mui-tab-label">审批撤回</span>
+		    </a>
+		</nav>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('#scroll-ul').on('tap','.right-btn',function(){
+					var self = this;
+					var label = self.querySelector('label');
+					var img = self.querySelector('img');
+					var par = self.parentNode;
+					if(label.innerText == '展开'){
+						label.innerText = '收起';
+						img.src = '../res/smicon/slide-up.png';
+						par.classList.add('down');
+					}else{
+						label.innerText = '展开';
+						img.src = '../res/smicon/slide-down.png';
+						par.classList.remove('down');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

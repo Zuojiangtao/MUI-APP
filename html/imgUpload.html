@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.imageNone{
+				width: 3rem;height: 3rem;
+				margin: 1.9rem auto 0;
+			}
+			.imageNone>img{
+				width: 3rem;height: 3rem;
+			}
+			.img-none span{
+				width: 100%;
+				height: auto;
+				display: inline-block;
+				font-size: 0.32rem;
+				color: #646464;
+				text-align: center;
+			}
+			#imgUpload{
+				width: 5rem;height: 0.8rem;
+				border: 1px solid #545454;
+				font-size: 0.32rem;
+				color: #323232;
+				display: block;
+				margin: 1.32rem auto;
+			}
+			
+			/*图片容器*/
+			.twoRankedBox{
+				width: 100%;height: auto;
+				margin-top: 20px;
+				overflow: hidden;
+				padding: 0.3rem 0 50px;
+				background: #FFFFFF;
+				box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+			}
+			.twoRankedBox>ul{
+				width: 50%;height: auto;
+				float: left;
+			}
+			.twoRankedBox>ul>li{
+				width: 3.3rem;
+				min-height: 4rem;
+				margin: 0 auto .3rem;
+				overflow: hidden;
+				position: relative;
+				border: 1px solid #DADADA;
+				border-radius: 4px;
+			}
+			.twoRankedBox img.s-img{
+				width: 3.3rem;height: 3.3rem;
+			}
+			.twoRankedBox .textarea{
+				width: 100%;
+				min-height: 0.46rem;
+				display: block;
+				overflow: hidden;
+				font-size: 0.24rem;
+				color: #969696;
+				line-height: 0.28rem;
+				text-align: left;
+				padding: 0.2rem;
+				outline: none;
+				border: none;
+				margin-top: -.1rem;
+			}
+			.twoRankedBox img.m-img{
+				width: .3rem;height: .3rem;
+				position: absolute;
+				top: 0.05rem;
+				right: 0.05rem;
+			}
+			
+			.mui-bar-tab{
+				background: #545454;
+			}
+			.mui-bar-tab .mui-tab-item{
+				color: #FFFFFF;
+				text-align: right;
+				padding-right: 0.3rem;
+			}
+			.mui-bar-tab>.mui-tab-item:first-child{
+				text-align: left;
+				padding-left: 0.3rem;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active{
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">上传图片</h1>
+		    <a class="mui-pull-right">全选</a>
+		</header>
+		<div class="mui-content">
+			<!--无图片样式-->
+			<div class="img-none mui-hidden">
+				<div class="imageNone">
+					<img src="../res/img-upload/noImg.png" alt="" />
+				</div>
+				<span>您还没有上传图片</span>
+				<button id="imgUpload">开始上传</button>
+			</div>
+			<!--有图片样式-->
+			<!--图片容器：分左右2列-->
+			<div class="twoRankedBox"> 
+		        <ul class="BoxLeft"> 
+		        	<li>
+		        		<img class="s-img" src="../res/img-upload/1.png" alt="" />
+    					<textarea class="textarea">DHAHSDSA-0001-正面</textarea>
+    					<img class="m-img" src="../res/img-upload/img-none.png" alt="" />
+		        	</li>
+		 			<li>
+		        		<img class="s-img" src="../res/img-upload/1.png" alt="" />
+    					<textarea class="textarea">DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面</textarea>
+    					<img class="m-img" src="../res/img-upload/img-none.png" alt="" />
+		        	</li>
+		        	<li>
+		        		<img class="s-img" src="../res/img-upload/1.png" alt="" />
+    					<textarea class="textarea">DHAHSDSA-0001-正面</textarea>
+    					<img class="m-img" src="../res/img-upload/img-none.png" alt="" />
+		        	</li>
+		        </ul> 
+		 		
+		        <ul class="BoxRight"> 
+		 			<li>
+		        		<img class="s-img" src="../res/img-upload/1.png" alt="" />
+    					<textarea class="textarea">DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面DHAHSDSA-0001-正面</textarea>
+    					<img class="m-img" src="../res/img-upload/img-none.png" alt="" />
+		        	</li>
+		        	<li>
+		        		<img class="s-img" src="../res/img-upload/1.png" alt="" />
+    					<textarea class="textarea">DHAHSDSA-0001-正面</textarea>
+    					<img class="m-img" src="../res/img-upload/img-none.png" alt="" />
+		        	</li>
+		        </ul> 
+		    </div> 
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" id="imgUpload1">
+		        <span class="mui-tab-label">删除</span>
+		    </a>
+		    <a class="mui-tab-item" id="imgUpload2">
+		        <span class="mui-tab-label">继续上传</span>
+		    </a>
+		</nav>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/textarea.js"></script>
+		<script src="../js/imgUpload.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig:{
+					longtap:true
+				}
+			});
+			//	textarea自适应
+			var textarea = document.querySelectorAll(".textarea");
+			for (var i = 0; i < textarea.length;i ++) {
+				autoTextarea(textarea[i]);
+			}
+			mui.ready(function(){
+				
+				var box = document.querySelector('.twoRankedBox');
+				var img = box.querySelectorAll('.m-img');
+				var ipt2 = document.querySelector('#imgUpload2>.mui-tab-label');//底部
+				//如果没图片就直接上传
+				function check(){
+					var num = box.querySelectorAll('ul>li').length;
+					var bg = document.querySelector('.img-none');
+					var nav = document.querySelector('.mui-bar-tab');
+					if (num == 0) {
+						bg.classList.remove('mui-hidden');
+						box.classList.add('mui-hidden');
+						nav.classList.add('mui-hidden');
+					} else{
+						bg.classList.add('mui-hidden');
+						box.classList.remove('mui-hidden');
+						nav.classList.remove('mui-hidden');
+					}
+				}
+				
+				//图片的选择和删除
+				mui('.mui-bar-nav').on('tap','.mui-pull-right',function(){
+					var self = this;
+					var ipt = self.innerText;
+					if (ipt == '全选') {
+						self.innerText = '取消';
+						del();
+					} else{
+						self.innerText = '全选';
+						sel();
+					}
+				});
+				
+				function del(){
+					for (var i = 0; i < img.length; i ++) {
+						img[i].setAttribute('src','../res/img-upload/img-sel.png');
+						img[i].classList.add('sel');
+					}
+				}
+				function sel(){
+					for (var i = 0; i < img.length; i ++) {
+						img[i].setAttribute('src','../res/img-upload/img-none.png');
+						img[i].classList.remove('sel');
+					}
+				}
+				mui('.twoRankedBox').on('tap','li>img:first-child',function(){6
+					
+					var img = this.parentNode.querySelector('img.m-img');
+					if (!img.classList.contains('sel')) {
+						img.classList.add('sel');
+						img.setAttribute('src','../res/img-upload/img-sel.png');
+					}else{
+						img.classList.remove('sel');
+						img.setAttribute('src','../res/img-upload/img-none.png');
+					}
+				});
+				
+				//长按重新上传上传
+				mui('.twoRankedBox').on('longtap','li>img:first-child',imgUpload);
+				//开始上传
+		        document.getElementById('imgUpload').addEventListener('tap',imgUpload, false);
+		        //删除
+		        document.getElementById('imgUpload1').addEventListener('tap',imgDelete, false);
+		        //继续上传
+		        document.getElementById('imgUpload2').addEventListener('tap',imgUpload, false);
+		        
+		        //删除图片
+				function imgDelete(){
+					var imgArry = document.querySelectorAll('.m-img');
+					for (var i = 0; i < imgArry.length; i ++) {
+						if (imgArry[i].classList.contains('sel')) {
+							imgArry[i].parentNode.parentNode.removeChild(imgArry[i].parentNode);
+						}
+						check();
+					}
+				}
+				
+				//上传图片
+				function imgUpload(){
+					if (mui.os.plus) { 
+		                var a = [{ 
+		                    title: "拍照" 
+		                }, { 
+		                    title: "从手机相册选择" 
+		                }]; 
+		                plus.nativeUI.actionSheet({ 
+		                    title: "上传图片", 
+		                    cancel: "取消", 
+		                    buttons: a 
+		                }, function(b) { /*actionSheet 按钮点击事件*/ 
+		                    switch (b.index) { 
+		                        case 0: 
+		                            break; 
+		                        case 1: 
+		                            getImage(); /*拍照*/ 
+		                            break; 
+		                        case 2: 
+		                            galleryImg();/*打开相册*/ 
+		                            break; 
+		                        default: 
+		                            break; 
+		                    } 
+		                }) 
+		            } 
+				}
+				
+		        //拍照 
+		        function getImage() { 
+		            var c = plus.camera.getCamera(); 
+		            c.captureImage(function(e) { 
+		                plus.io.resolveLocalFileSystemURL(e, function(entry) { 
+		                    var s = entry.toLocalURL() + "?version=" + new Date().getTime(); 
+		                    uploadHead(s); /*上传图片*/ 
+		                }, function(e) { 
+		                    console.log("读取拍照文件错误：" + e.message); 
+		                }); 
+		            }, function(s) { 
+		                console.log("error" + s); 
+		            }, { 
+		                filename: "_doc/head.png" 
+		            }) 
+		        } 
+		        
+		        //本地相册选择
+		        function galleryImg() { 
+		            plus.gallery.pick(function(a) { 
+		                plus.io.resolveLocalFileSystemURL(a, function(entry) { 
+		                    plus.io.resolveLocalFileSystemURL("_doc/", function(root) { 
+		                        root.getFile("head.png", {}, function(file) { 
+		                            //文件已存在 
+		                            file.remove(function() { 
+		                                console.log("file remove success"); 
+		                                entry.copyTo(root, 'head.png', function(e) { 
+		                                        var e = e.fullPath + "?version=" + new Date().getTime(); 
+		                                        uploadHead(e); /*上传图片*/ 
+		                                        //变更大图预览的src 
+		                                        //目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现 
+		                                    }, 
+		                                    function(e) { 
+		                                        console.log('copy image fail:' + e.message); 
+		                                    }); 
+		                            }, function() { 
+		                                console.log("delete image fail:" + e.message); 
+		                            }); 
+		                        }, function() { 
+		                            //文件不存在 
+		                            entry.copyTo(root, 'head.png', function(e) { 
+		                                    var path = e.fullPath + "?version=" + new Date().getTime(); 
+		                                    uploadHead(path); /*上传图片*/ 
+		                                }, 
+		                                function(e) { 
+		                                    console.log('copy image fail:' + e.message); 
+		                                }); 
+		                        }); 
+		                    }, function(e) { 
+		                        console.log("get _www folder fail"); 
+		                    }) 
+		                }, function(e) { 
+		                    console.log("读取拍照文件错误：" + e.message); 
+		                }); 
+		            }, function(a) {}, { 
+		                filter: "image" 
+		            }) 
+		        }; 
+				
+				//上传头像图片
+		        function uploadHead(imgPath) { 
+		            console.log("imgPath = " + imgPath); 
+		            mainImage.src = imgPath; 
+		            mainImage.style.width = "60px"; 
+		            mainImage.style.height = "60px"; 
+		 
+		            var image = new Image(); 
+		            image.src = imgPath; 
+		            image.onload = function() { 
+		                var imgData = getBase64Image(image); 
+		                /*在这里调用上传接口*/ 
+		//              mui.ajax("图片上传接口", { 
+		//                  data: { 
+		//                       
+		//                  }, 
+		//                  dataType: 'json', 
+		//                  type: 'post', 
+		//                  timeout: 10000, 
+		//                  success: function(data) { 
+		//                      console.log('上传成功'); 
+		//                  }, 
+		//                  error: function(xhr, type, errorThrown) { 
+		//                      mui.toast('网络异常，请稍后再试！'); 
+		//                  } 
+		//              }); 
+		            } 
+		    } 
+		        
+		        //将图片压缩转成base64
+		        function getBase64Image(img) { 
+		            var canvas = document.createElement("canvas"); 
+		            var width = img.width; 
+		            var height = img.height; 
+		            // calculate the width and height, constraining the proportions 
+		            if (width > height) { 
+		                if (width > 100) { 
+		                    height = Math.round(height *= 100 / width); 
+		                    width = 100; 
+		                } 
+		            } else { 
+		                if (height > 100) { 
+		                    width = Math.round(width *= 100 / height); 
+		                    height = 100; 
+		                } 
+		            } 
+		            canvas.width = width;   /*设置新的图片的宽度*/ 
+		            canvas.height = height; /*设置新的图片的长度*/ 
+		            var ctx = canvas.getContext("2d"); 
+		            ctx.drawImage(img, 0, 0, width, height); /*绘图*/ 
+		            var dataURL = canvas.toDataURL("image/png", 0.8); 
+		            return dataURL.replace("data:image/png;base64,", ""); 
+		        }    
+			});
+		</script>
+	</body>
+
+</html>

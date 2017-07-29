@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home1.css" />
+		<link rel="stylesheet" href="../css/wrapper.css" />
+		<link rel="stylesheet" href="../css/mui.picker.all.css" />
+		<link rel="stylesheet" href="../css/mescroll.css" />
+		<link rel="stylesheet" href="../css/mescroll-option.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			/*下拉刷新回调的提示*/
+			.download-tip{
+				z-index: 2;
+				position: fixed;
+				top: 44px;
+				left: 0;
+				width: 100%;
+				height: 24px;
+				line-height: 24px;
+				font-size: 14px;
+				text-align: left;
+				padding-left: 0.3rem;
+				background: #FFF3F3;
+				color: #646464;
+				-webkit-transition: top 300ms;
+				transition: top 300ms;
+			}
+			/*列表*/
+			#mescroll{
+				position: fixed;
+				top: 49px;
+				bottom: 0;
+				height: auto;
+				z-index: 1;
+			}
+            .mui-content{
+                height: 100%;
+                overflow-y: scroll;
+                background: #FFFFFF;
+            }
+			/*日期选择设置*/
+			.mui-dtpicker-header{
+				background: #FFFFFF;
+			}
+			.mui-dtpicker-header button{
+				border: none;
+				background: transparent;
+				color: #545454;
+				font-size: 0.34rem;
+			}
+			.btn{
+				width: 91.5%;height: 0.6rem;
+				border: 1px solid #979797;
+				font-size: 0.28rem;
+				color: #646464;
+				float: left;
+				margin-bottom: 0.1rem;margin-left: 0.1rem;
+				padding-left: 0.2rem;
+				background: url(../res/smicon/time.png)calc(95%) center no-repeat;
+				background-size: 0.3rem 0.3rem;
+			}
+			.btn>label{
+				height: 0.6rem;
+				line-height: 0.6rem;
+			}
+			#pickerLi{
+				overflow: hidden;
+			}
+			#pickerLi>span{
+				height: 0.6rem;
+				line-height: 0.6rem;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-slide-in">
+		  	<!-- 菜单容器 -->
+		  	<aside class="mui-off-canvas-right">
+		  		<!--侧滑导航-->
+		    	<div id="offCanvasSideScroll" class="wrapper-section mui-scroll-wrapper">
+		      		<div class="mui-scroll">
+			        	<!-- 菜单具体展示内容 -->
+			        	<ul>
+			        		<li>
+			        			<span>工厂</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li><span>采购合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li><span>销售合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li>
+			        			<span>业务员</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="张三">张三</option>
+				        				<option value="张三">2</option>
+				        				<option value="张三">3</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li id="pickerLi">
+			        			<span style="width: 100%;">制单日期</span>
+			        			<span>从</span><div class="btn btn1"><label id='pickDateBtn1' class="add_r2">2016-10-11 09:30</label></div>
+		    					<div style="width: 0;height: 0;clear: both;"></div>
+		    					<span>到</span><div class="btn btn2"><label id='pickDateBtn2' class="add_r2">2016-10-11 09:30</label></div>
+			        		</li>
+			        	</ul>
+			      	</div>
+		    	</div>
+		    	<nav class="mui-bar mui-bar-tab">
+		    	    <a class="mui-tab-item mui-active">
+		    	        <span class="mui-tab-label">重置</span>
+		    	    </a>
+		    	    <!--完成按钮增加关闭侧滑菜单功能-->
+		    	    <a class="mui-tab-item" id="offCanvasHide">
+		    	        <span class="mui-tab-label">完成</span>
+		    	    </a>
+		    	    </a>
+		    	</nav>
+		  	</aside>
+		  	<!-- 主页面容器 -->
+		  	<div class="mui-inner-wrap">
+		  		<header class="mui-bar mui-bar-nav">
+		    		<a class="mui-action-back mui-pull-left">返回</a>
+				    <h1 class="mui-title">质检单</h1>
+				</header>
+				
+				<div class="search">
+					<button class="search-btn">搜索</button>
+					<button class="mui-action-menu" id="offCanvasShow">筛选</button>
+				</div>
+				
+				<!--下拉刷新回调的提示-->
+				<p id="downloadTip" class="download-tip">
+					本次共加载新内容 <span style="color: #FFAA00;">1</span> 条
+				</p>
+				<!--主页面内容-->
+		    	<div id="mescroll" class="mui-content mui-scroll-wrapper">
+		    			
+					<div class="qlt">
+						<div class="qlt-li">
+							<ul>
+								<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+								<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+								<li><span>合同金额</span><label for="">￥10000.00</label></li>
+								<li><span>质检日期</span><label for="">2017-05-01</label></li>
+								<li><span>制单人</span><label for="">张三</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>质检结论</span><label for="">合格</label></li>
+								<li><span>是否矩工验收</span><label for="">验收</label></li>
+							</ul>
+							<img src="../res/home1/1.png" alt="" />
+						</div>
+						<div class="qlt-li">
+							<ul>
+								<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+								<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+								<li><span>合同金额</span><label for="">￥10000.00</label></li>
+								<li><span>质检日期</span><label for="">2017-05-01</label></li>
+								<li><span>制单人</span><label for="">张三</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>质检结论</span><label for="">合格</label></li>
+								<li><span>是否矩工验收</span><label for="">验收</label></li>
+							</ul>
+							<img src="../res/home1/2.png" alt="" />
+						</div>
+						<div class="qlt-li">
+							<ul>
+								<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+								<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+								<li><span>合同金额</span><label for="">￥10000.00</label></li>
+								<li><span>质检日期</span><label for="">2017-05-01</label></li>
+								<li><span>制单人</span><label for="">张三</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>质检结论</span><label for="">合格</label></li>
+								<li><span>是否矩工验收</span><label for="">验收</label></li>
+							</ul>
+							<img src="../res/home1/3.png" alt="" />
+						</div>
+					</div>
+	    		
+	    		</div>
+				<!--遮罩蒙版 -->
+				<div class="mui-off-canvas-backdrop"></div>
+		  	</div>
+	</div>
+				
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/mescroll.js"></script>
+		<script src="../js/mescroll-option.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig:{
+					hold:true,
+   					release:true
+				}
+//				subpages:{
+//					url:"home1.html",
+//					id:'home1.html'
+//				}
+			});
+			mui.ready(function(){
+				document.getElementById('offCanvasShow').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas('show');
+				});
+				//完成按钮增加关闭侧滑菜单功能
+				document.getElementById('offCanvasHide').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas().close();
+				});
+				//主界面和侧滑菜单界面均支持区域滚动；
+				mui('#offCanvasSideScroll').scroll();
+				mui('.qlt').on('hold','.qlt-li',function(){
+					var self = this;
+					self.classList.add('active');
+				});
+				mui('.qlt').on('release','.qlt-li',function(){
+					var self = this;
+					self.classList.remove('active');
+				});
+				mui('.search').on('tap','.search-btn',function(){
+					mui.openWindow({
+						url: 'search.html',  
+					    id: 'search.html'
+					});
+				});
+				mui('.qlt').on('tap','.qlt-li',function(){
+					mui.openWindow({
+						url: 'home1-detail.html',  
+					    id: 'home1-detail.html'
+					});
+				});
+			});
+			(function($) {
+				$.init();
+				var result1 = $('#pickDateBtn1')[0];
+				var result2 = $('#pickDateBtn2')[0];
+				var btns1 = $('.btn1');
+				var btns2 = $('.btn2');
+				btns1.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result1.innerText = rs.text;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false);
+				});
+				btns2.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							result2.innerText = rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+			$(function(){
+			//创建MeScroll对象
+			var mescroll = initMeScroll("mescroll", {
+				down:{
+					auto:false,//是否在初始化完毕之后自动执行下拉回调callback; 默认true
+					callback: downCallback, //下拉刷新的回调
+				},
+				up: {
+					auto:true,//初始化完毕,是否自动触发上拉加载的回调
+					isBoth: true, //上拉加载时,如果滑动到列表顶部是否可以同时触发下拉刷新;默认false,两者不可同时触发; 这里为了演示改为true,不必等列表加载完毕才可下拉;
+					callback: upCallback, //上拉加载的回调
+				}
+			});
+			
+			/*下拉刷新的回调 */
+			function downCallback(){
+				//加载轮播数据..
+				//...
+				//加载列表数据
+				getListDataFromNet(0, 1, function(data){
+					//联网成功的回调,隐藏下拉刷新的状态
+					mescroll.endSuccess();
+					//设置列表数据
+					//setListData(data, false);
+					//显示提示
+					$("#downloadTip").css("top","93px");
+					setTimeout(function () {
+						$("#downloadTip").css("top","44px");
+					},2000);
+				}, function(){
+					//联网失败的回调,隐藏下拉刷新的状态
+	                mescroll.endErr();
+				});
+			}
+			
+			/*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+			function upCallback(page){
+				//联网加载数据
+				console.log("page.num="+page.num);
+				getListDataFromNet(page.num, page.size, function(data){
+					//联网成功的回调,隐藏上拉加载的状态
+					mescroll.endSuccess(data.length);//传参:数据的总数; mescroll会自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+					//设置列表数据
+					setListData(data, true);
+				}, function(){
+					//联网失败的回调,隐藏上拉加载的状态
+	                mescroll.endErr();
+				});
+			}
+			
+			/*设置列表数据*/
+			function setListData(data, isAppend) {
+				var listDom=document.getElementById("newsList");
+				for (var i = 0; i < data.length; i++) {
+					var newObj=data[i];
+					
+					var str='<p>'+newObj.title+'</p>';
+					str+='<p class="new-content">'+newObj.content+'</p>';
+					var liDom=document.createElement("li");
+					liDom.innerHTML=str;
+					
+					if (isAppend) {
+						listDom.appendChild(liDom);//加在列表的后面,上拉加载
+					} else{
+						listDom.insertBefore(liDom, listDom.firstChild);//加在列表的前面,下拉刷新
+					}
+				}
+			}
+			
+			/*联网加载列表数据*/
+			var downIndex=0;
+			function getListDataFromNet(pageNum,pageSize,successCallback,errorCallback) {
+				//延时一秒,模拟联网
+                setTimeout(function () {
+                	try{
+                		var newArr=[];
+	                	if(pageNum==0){
+	                		//此处模拟下拉刷新返回的数据
+	                		downIndex++;
+	                		var newObj={title:"【新增话题"+downIndex+"】 新增话题", content:"新增话题的内容"};
+	                		newArr.push(newObj);
+	                	}else{
+	                		//此处模拟上拉加载返回的数据
+	                		for (var i = 0; i < pageSize; i++) {
+	                			var upIndex=(pageNum-1)*pageSize+i+1;
+	                			var newObj={title:"【话题"+upIndex+"】 标题标题标题", content:"内容内容内容"};
+	                			newArr.push(newObj);
+	                		}
+	                	}
+	                	//联网成功的回调
+	                	successCallback&&successCallback(newArr);
+                	}catch(e){
+                		//联网失败的回调
+                		errorCallback&&errorCallback();
+                	}
+                },2000)
+			}
+		});
+		</script>
+	</body>
+
+</html>

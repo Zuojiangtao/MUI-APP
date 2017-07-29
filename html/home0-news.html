@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/news.css" />
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">企业热点</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="news-list">
+		    	<div class="news-sec">
+		    		<img src="../res/news/news.png" alt="" />
+		    		<span>公司召开第七届员工代表大会</span>
+		    		<div>
+		    			工具的产生， 起源于人类试图改变自身生存状态的尝试
+						和努力。发展到了今天， 它已经成长为人类创造美好生
+		    		</div>
+		    		<p>
+						活不可或缺的助手。 我们，翰都人，十余年一直致力于
+						为世界提供值得信赖的产品。 品质控制，研发设计，是
+						我们一贯坚持并视之为我们生存的基石。 用户至上，服
+						务市场，是我们秉承的宗旨。 我们能为市场提供几千种
+						产品，以广泛满足不同用户的需要。我们还将持续努
+						力，提供更多的优质产品。 我们拥有自己的品牌，基本
+						覆盖了所有产品线。在中南美洲，已经成为有影响力的
+						知名品牌。我们会继续努力工作，提供更好的产品，来
+						报答使用者的厚爱。我们积极寻找长期合作的伙伴，和
+						我们一起，让更多的人使用我们的工具，用工具为人类
+						创造更美好的生活。
+		    		</p>
+		    		<img src="../res/smicon/slide-down.png" alt="" />
+		    	</div>
+		    	<div class="news-sec">
+		    		<img src="../res/news/news.png" alt="" />
+		    		<span>公司召开第七届员工代表大会</span>
+		    		<div>
+		    			工具的产生， 起源于人类试图改变自身生存状态的尝试
+						和努力。发展到了今天， 它已经成长为人类创造美好生
+		    		</div>
+		    		<p>
+						活不可或缺的助手。 我们，翰都人，十余年一直致力于
+						为世界提供值得信赖的产品。 品质控制，研发设计，是
+						我们一贯坚持并视之为我们生存的基石。 用户至上，服
+						务市场，是我们秉承的宗旨。 我们能为市场提供几千种
+						产品，以广泛满足不同用户的需要。我们还将持续努
+						力，提供更多的优质产品。 我们拥有自己的品牌，基本
+						覆盖了所有产品线。在中南美洲，已经成为有影响力的
+						知名品牌。我们会继续努力工作，提供更好的产品，来
+						报答使用者的厚爱。我们积极寻找长期合作的伙伴，和
+						我们一起，让更多的人使用我们的工具，用工具为人类
+						创造更美好的生活。
+		    		</p>
+		    		<img src="../res/smicon/slide-down.png" alt="" />
+		    	</div>
+		    	<div class="news-sec">
+		    		<img src="../res/news/news.png" alt="" />
+		    		<span>公司召开第七届员工代表大会</span>
+		    		<div>
+		    			工具的产生， 起源于人类试图改变自身生存状态的尝试
+						和努力。发展到了今天， 它已经成长为人类创造美好生
+		    		</div>
+		    		<p>
+						活不可或缺的助手。 我们，翰都人，十余年一直致力于
+						为世界提供值得信赖的产品。 品质控制，研发设计，是
+						我们一贯坚持并视之为我们生存的基石。 用户至上，服
+						务市场，是我们秉承的宗旨。 我们能为市场提供几千种
+						产品，以广泛满足不同用户的需要。我们还将持续努
+						力，提供更多的优质产品。 我们拥有自己的品牌，基本
+						覆盖了所有产品线。在中南美洲，已经成为有影响力的
+						知名品牌。我们会继续努力工作，提供更好的产品，来
+						报答使用者的厚爱。我们积极寻找长期合作的伙伴，和
+						我们一起，让更多的人使用我们的工具，用工具为人类
+						创造更美好的生活。
+		    		</p>
+		    		<img src="../res/smicon/slide-down.png" alt="" />
+		    	</div>
+		    </div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.news-sec').on('tap','img:last-child',function(){
+					var self = this;
+					var p = self.previousElementSibling;
+					var sel =self.getAttribute('selected');
+					if(!sel){
+						self.src = '../res/smicon/slide-up.png';
+						self.setAttribute('selected','selected');
+						p.classList.add('active');
+					}else{
+						self.src = '../res/smicon/slide-down.png';
+						self.removeAttribute('selected');
+						p.classList.remove('active');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

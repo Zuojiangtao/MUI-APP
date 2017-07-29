@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.mui-content{
+				padding: 0.2rem 0.3rem 0;
+			}
+			.appr,.sel-per{
+				width: 100%;min-height: 3rem;
+				background: #FFFFFF;
+				border: 1px solid #DADADA;
+				border-radius: 0.02rem;
+				padding: 0.3rem;
+				margin-top: 0.2rem;
+				/*overflow: hidden;*/
+			}
+			.appr>span,.sel-per>span{
+				font-size: 0.28rem;
+				font-weight: bold;
+				color: #646464;
+			}
+			.appr>textarea{
+				min-height: 2.8rem;
+				font-size: 0.28rem;
+				color: #646464;
+				border: none;
+				/*overflow: hidden;*/
+			}
+			.sel-per>ul{
+				width: 100%;height: auto;
+			}
+			.sel-per>ul>li{
+				width: 100%;height: 0.32rem;line-height: 0.32rem;
+				padding-left: 0.1rem;
+				margin-top: 0.15rem;
+			}
+			.sel-per>ul>li>img{
+				width: 0.3rem;height: .3rem;
+				position: relative;
+				top: 0.03rem;
+				
+			}
+			.sel-per>ul>li>span{
+				font-size: 0.28rem;
+				color: #969696;
+				margin-left: 0.1rem;
+			}
+			.sel-per>ul>li.active>span{
+				color: #323232;
+				font-weight: bold;
+			}
+			.mui-bar-tab{
+				background: #545454;
+			}
+			.mui-tab-item>.mui-tab-label{
+				color: #FFFFFF;
+				text-align: right;
+				padding-right: 0.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">审批同意</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="appr">
+		    	<span>审批意见：</span>
+		    	<!--以下的textarea不要改动，浏览器解析问题，<textarea> 内容内容</textarea>   必须写成一行-->
+		    	<textarea id="textarea">填写您的审批意见</textarea>
+		    </div>
+		    <div class="sel-per">
+		    	<span>选择下一位审核人：</span>
+		    	<ul id="per-sel">
+		    		<li class="active"><img src="../res/smicon/edit-img-y.png" alt="" /><span>经理审批</span></li>
+		    		<li><img src="../res/smicon/edit-img-n.png" alt="" /><span>部门经理审批</span></li>
+		    		<li><img src="../res/smicon/edit-img-n.png" alt="" /><span>财务审批</span></li>
+		    		<li><img src="../res/smicon/edit-img-n.png" alt="" /><span>主管审批</span></li>
+		    	</ul>
+		    </div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item" style="text-align: right;padding-right: 0.3rem;">
+		        <span class="mui-tab-label">审批提交</span>
+		    </a>
+		</nav>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/textarea.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//textarea自适应
+			var text = document.getElementById("textarea");
+			autoTextarea(text);
+			mui.ready(function(){
+				mui('#per-sel').on('tap','li',function(){
+					var self = this;
+					var img = self.querySelector('img');
+					if(!self.classList.contains('active')){
+						self.classList.add('active');
+						img.src = '../res/smicon/edit-img-y.png';
+					}else{
+						self.classList.remove('active');
+						img.src = '../res/smicon/edit-img-n.png';
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

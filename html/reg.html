@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/login.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.login_ipt{
+				margin-top: 1rem;
+			}
+			.login_ipt:nth-child(5){
+				margin: 0.2rem auto 0;
+			}
+			#name,#password,#name.wrong,#password.wrong,#setPass{
+				background: #FFFFFF;
+				padding-left: 0.3rem;
+			}
+			#passIpt{
+				overflow: hidden;
+				border: none;
+				background: transparent;
+				border-radius: 0;
+				margin: 0.2rem auto 0;
+			}
+			#password{
+				width: 2.5rem;
+				float: left;
+				background: #FFFFFF;
+				border: 0.02rem solid #FF9000;
+				border-radius: 0.08rem;
+			}
+			#passIpt>button{
+				width: 2.28rem;height: 0.8rem;
+				float: right;
+				background: #FFAA00;
+				border-radius: 0.08rem;
+				color: #FFFFFF;
+			}
+			#passIpt>button.clicked{
+				background: #b4b4b4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="reg">
+			<div class="login_img"></div>
+			<div class="appr-img"></div>
+			<div class="login_ipt">
+				<input type="text" class="wrong" id="name" placeholder="输入要注册的手机号"/>
+			</div>
+			<div class="login_ipt" id="passIpt">
+				<input type="text" id="password" placeholder="输入验证码"/>
+				<button>获取验证码</button>
+			</div>
+			<div class="login_ipt">
+				<input type="password" class="wrong" id="setPass" placeholder="设置密码"/>
+			</div>
+			<div class="login_btn">
+				<button>立即注册</button>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('#reg').on('tap','.login_btn',function(){
+					mui.openWindow({
+						url: 'reg-1.html',  
+						id: 'reg-1.html'
+					})
+				});
+				mui('#passIpt').on('tap','button',function (o){
+					var self = this;
+					time(self);
+				});
+				var wait=60;
+				function time(o) {
+				    if (wait == 0) {
+				   	o.removeAttribute("disabled");   
+				   	o.innerText="获取验证码";
+				   	wait = 60;
+				   	o.classList.remove('clicked');
+				  	} else { 
+				   	o.setAttribute("disabled", true);
+				   	o.innerText="重新发送(" + wait + "s)";
+				   	o.classList.add('clicked');
+				    wait--;
+				   	setTimeout(function() {
+				    	time(o)
+				   	},1000);
+				  }
+				 }
+			});
+		</script>
+	</body>
+
+</html>

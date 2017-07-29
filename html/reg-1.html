@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.mui-content{
+				padding-left: 0.3rem;
+				padding-right: 0.3rem;
+			}
+			.tit{
+				width: 100%;line-height: 0.4rem;
+				font-size: 0.4rem;
+				color: #323232;
+				text-align: center;
+				margin-bottom: 0.3rem;margin-top: 0.3rem;
+			}
+			p{
+				font-size: 0.30rem;
+				color: #646464;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">服务条款</h1>
+		    <a class="mui-pull-right" id="regFinish">同意</a>
+		</header>
+		<div class="mui-content">
+		    <span class="tit">用户服务条款</span>
+		    <p>
+		    	　　1.接受条款
+					　　欢迎光临________.________系依以下条件
+					为您提供服务，前述条件本公司得随时更新，
+					毋须另行通知。您得随时造访________查阅最
+					新版服务条款。此外，当您使用特殊________
+					服务时，您和________均须符合随时张贴的与
+					该等之服务相关的要点和规则。前述所有的要
+					点和规则，均构成本服务条款的一部分。若您
+					为________geocities service的用户，请注意
+					您应适用不同的服务条款。________得随时提
+					供其他服务，例如适用不同服务条款规范的 
+					________！ store、及________！ site.本服务
+					条款不适用於________！ geocities service、
+					________！ store或________！ site或其他服
+					务。
+					　　2. 服务说明
+					　　________目前经由其产品组合，提供使用
+					者存取丰富的网上资源，包括各种信息工具、
+					网上论坛、购物服务、个人化内容及品牌程序
+					设计（以下简称[本服务]）除非另有其他明示
+					规定，增强或强化目前本服务的任何新功能，
+					包括所推出的新产品，均受到本服务条款之规
+					范。您能了解也同意，本服务？依[现况]提
+					供，任何使用者通讯或个人化设定之时效、删
+					除、传递错误、未予储存、或其他任何问题，
+					________均不承担任何责任。为使用本服务，
+					您必须能够？自行以直接的方式或经由可使用
+					到网络内容的装置，进入国际联网，并应自行
+					支付相关服务费用。此外，您必须自行提供与
+					国际联网连线所需之一切必要装备，包括计算
+					机、数据机或其他存取装置。
+					　　3. 遵守法律
+					　　您同意遵守《中华人民共和国保密法》、
+					《计算机信息系统国际联网保密管理规定》、
+					《中华人民共和国计算机信息系统安全保护条
+					例》、《计算机信息网络国际联网安全保护管
+					理办法》、《中华人民共和国计算机信息网络
+					国际联网管理暂行规定》及其实施办法等相关
+					法律法规的任何及所有的规定，并对您以任何
+					方式使用服务的任何行为及其结果承担全部责
+					任。在任何情况下，如果________合理地认为
+					您的任何行为，包括但不限于您的任何言论和
+					其他行为违反或可能违反上述法律和法规的任
+					何规定，________可在任何时候不经任何事先
+					通知终止向您提供服务。
+		    </p>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.mui-bar-nav').on('tap','#regFinish',function(){
+					mui.openWindow({
+						url:'../login.html',
+						id:'../login.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

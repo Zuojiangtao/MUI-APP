@@ -1,0 +1,112 @@
+.search{
+	width: 100%;height: 50px;
+	overflow: hidden;
+	position: relative;
+	top: 44px;
+	z-index: 3;
+	border-bottom: 1px solid #DADADA;
+}
+.search>button.search-btn{
+	width: 50%;
+	height: 100%;
+	float: left;
+	border: none;
+	font-size: 0.28rem;
+	color: #646464;
+	text-align: center;
+	background-image: url(../res/smicon/search-ipt.png);
+	background-repeat: no-repeat;
+	background-position: 35% 15px;
+	background-size: 0.4rem 0.4rem;
+	
+}
+.search>button{
+	width: 50%;
+	height: 100%;
+	float: right;
+	border: none;
+	font-size: 0.28rem;
+	color: #646464;
+	background-image: url(../res/smicon/search-btn.png);
+	background-repeat: no-repeat;
+	background-position: 35% 15px;
+	background-size: 0.4rem 0.4rem;
+}
+.nav{
+	width: 100%;height: 2.6rem;
+	background: #FFFFFF;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+	overflow: hidden;
+	margin-top: 0.2rem;
+	padding: 0.3rem;
+}
+.nav>li{
+	width: 2.2rem;height: 2rem;
+	float: left;
+	margin-left: 0.1rem;
+	position: relative;
+}
+.nav>li:first-child{margin-left: 0;}
+.nav>li>img{
+	display: inline-block;
+	width: 1.06rem;height: 1.06rem;
+	margin-left: 0.57rem;
+	margin-top: 0.24rem;
+}
+.nav>li>span{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-size: 0.3rem;
+	color: #646464;
+}
+.nav>li>span.num{
+	width: 0.3rem;
+	height: 0.3rem;line-height: 0.3rem;
+	position: absolute;
+	top: 0.2rem;
+	right: 0.6rem;
+	background: #FF0000;
+	color: #FFFFFF;
+	font-size: 0.2rem;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.ui-page{
+	width: 100%;min-height: 4rem;
+	background: #FFFFFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	padding: 0 0.2rem;
+}
+.page-ul{
+	width: 100%;min-height: 0.33rem;
+	padding: 0 0.1rem;
+	border-bottom: 1px solid #DADADA;
+	position: relative;
+	overflow: hidden;
+}
+.page-ul>ul{
+	width: 100%;height: 100%;
+	padding: 0.1rem 0.1rem 0.3rem;
+}
+.page-ul>ul>li{
+	width: 100%;height: auto;
+	margin-top: 0.1rem;
+}
+.page-ul>ul>li>span{
+	display: inline-block;
+	width: 2rem;height: auto;
+	font-size: 0.28rem;
+	color: #323232;
+	font-weight: bold;
+}
+.page-ul>ul>li>label{
+	font-size: 0.28rem;
+	color: #545454;
+}
+.page-ul>img{
+	position: absolute;
+	width: 2.9rem;height: 2.4rem;
+	top: 0.6rem;right: 0;
+}

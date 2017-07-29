@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<script src="js/common.js"></script>
+	</head>
+
+	<body>
+		<div id="login">
+			<div class="login_img"></div>
+			<div class="login_ipt wrong">
+				<input type="text" id="name" placeholder="登录名"/>
+			</div>
+			<div class="login_ipt">
+				<input type="password" id="password" placeholder="密码口令"/>
+			</div>
+			<div class="login_btn">
+				<button>登录</button>
+			</div>
+		</div>
+		<div class="footer">
+			Copyright © 2017 - 2019 杭州翰都实业有限公司 版权所有 
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.login_btn').on('tap','button',function(){
+					mui.openWindow({
+						url: 'html/login-hand.html',  
+					    id: 'html/login-hand.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

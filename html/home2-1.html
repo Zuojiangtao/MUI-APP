@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home2.css" />
+		<link rel="stylesheet" href="../css/wrapper.css" />
+		<link rel="stylesheet" href="../css/mui.picker.all.css" />
+		<link rel="stylesheet" href="../css/mescroll.css" />
+		<link rel="stylesheet" href="../css/mescroll-option.css" />
+		<script src="../js/common.js"></script>
+		<style type="text/css">
+			/*下拉刷新回调的提示*/
+			.download-tip{
+				z-index: 2;
+				position: fixed;
+				top: 44px;
+				left: 0;
+				width: 100%;
+				height: 24px;
+				line-height: 24px;
+				font-size: 14px;
+				text-align: left;
+				padding-left: 0.3rem;
+				background: #FFF3F3;
+				color: #646464;
+				-webkit-transition: top 300ms;
+				transition: top 300ms;
+			}
+			/*列表*/
+			#mescroll{
+				position: fixed;
+				top: 49px;
+				bottom: 0;
+				height: auto;
+				z-index: 1;
+			}
+            .mui-content{
+                height: 100%;
+                overflow-y: scroll;
+                background: #FFFFFF;
+            }
+			/*日期选择设置*/
+			.mui-dtpicker-header{
+				background: #FFFFFF;
+			}
+			.mui-dtpicker-header button{
+				border: none;
+				background: transparent;
+				color: #545454;
+				font-size: 0.34rem;
+			}
+			.btn{
+				width: 91.5%;height: 0.6rem;
+				border: 1px solid #979797;
+				font-size: 0.28rem;
+				color: #646464;
+				float: left;
+				margin-bottom: 0.1rem;margin-left: 0.1rem;
+				padding-left: 0.2rem;
+				background: url(../res/smicon/time.png)calc(95%) center no-repeat;
+				background-size: 0.3rem 0.3rem;
+			}
+			.btn>label{
+				height: 0.6rem;
+				line-height: 0.6rem;
+			}
+			#pickerLi{
+				overflow: hidden;
+			}
+			#pickerLi>span{
+				height: 0.6rem;
+				line-height: 0.6rem;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-slide-in">
+		  	<!-- 菜单容器 -->
+		  	<aside class="mui-off-canvas-right">
+		  		<!--侧滑导航-->
+		    	<div id="offCanvasSideScroll" class="wrapper-section mui-scroll-wrapper">
+		      		<div class="mui-scroll">
+			        	<!-- 菜单具体展示内容 -->
+			        	<ul>
+			        		<li>
+			        			<span>工厂</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li><span>采购合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li><span>销售合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li>
+			        			<span>业务员</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="张三">张三</option>
+				        				<option value="张三">2</option>
+				        				<option value="张三">3</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li id="pickerLi">
+			        			<span style="width: 100%;">制单日期</span>
+			        			<span>从</span><div class="btn btn1"><label id='pickDateBtn1' class="add_r2">2016-10-11 09:30</label></div>
+		    					<div style="width: 0;height: 0;clear: both;"></div>
+		    					<span>到</span><div class="btn btn2"><label id='pickDateBtn2' class="add_r2">2016-10-11 09:30</label></div>
+			        		</li>
+			        		
+			        	</ul>
+			      	</div>
+		    	</div>
+		    	<nav class="mui-bar mui-bar-tab">
+		    	    <a class="mui-tab-item mui-active">
+		    	        <span class="mui-tab-label">重置</span>
+		    	    </a>
+		    	    <!--完成按钮增加关闭侧滑菜单功能-->
+		    	    <a class="mui-tab-item" id="offCanvasHide">
+		    	        <span class="mui-tab-label">完成</span>
+		    	    </a>
+		    	    </a>
+		    	</nav>
+		  	</aside>
+		  	<!-- 主页面容器 -->
+		  	<div class="mui-inner-wrap">
+		    	<!-- 主页面标题 -->
+		    	<header class="mui-bar mui-bar-nav">
+				    <a class="mui-action-back mui-pull-left">返回</a>
+				    <h1 class="mui-title">待我审批</h1>
+				</header>
+				
+				<div class="search">
+					<button class="search-btn">搜索</button>
+					<button class="mui-action-menu" id="offCanvasShow">筛选</button>
+				</div>
+				
+				<!--下拉刷新回调的提示-->
+				<p id="downloadTip" class="download-tip">
+					本次共加载新内容 <span style="color: #FFAA00;">1</span> 条
+				</p>
+				<!--主页面内容-->
+	    		<div id="mescroll" class="mui-content mui-scroll-wrapper">
+	    			
+					<div class="ui-page">
+						<div class="page-ul">
+							<ul>
+								<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>业务归属</span><label for="">张三</label></li>
+								<li><span>审批人</span><label for="">王五</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+								<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+							</ul>
+							<img src="../res/appr-history/appr-y.png" alt="" />
+						</div>
+						<div class="page-ul">
+							<ul>
+								<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>业务归属</span><label for="">张三</label></li>
+								<li><span>审批人</span><label for="">王五</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+								<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+							</ul>
+							<img src="../res/appr-history/appr-y.png" alt="" />
+						</div>
+						<div class="page-ul">
+							<ul>
+								<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>业务归属</span><label for="">张三</label></li>
+								<li><span>审批人</span><label for="">王五</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+								<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+							</ul>
+							<img src="../res/appr-history/appr-y.png" alt="" />
+						</div>
+						<div class="page-ul">
+							<ul>
+								<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+								<li><span>业务归属</span><label for="">张三</label></li>
+								<li><span>审批人</span><label for="">王五</label></li>
+								<li><span>制单日期</span><label for="">2017-05-01</label></li>
+								<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+								<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+							</ul>
+							<img src="../res/appr-history/appr-y.png" alt="" />
+						</div>
+					</div>
+	    		
+	    			<!--展示上拉加载的数据列表-->
+					<!--<ul id="newsList" class="news-list">
+						
+					</ul>-->
+	    		</div>
+				<!--遮罩蒙版 -->
+				<div class="mui-off-canvas-backdrop"></div>
+		  	</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/mescroll.js"></script>
+		<script src="../js/mescroll-option.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				document.getElementById('offCanvasShow').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas('show');
+				});
+				//完成按钮增加关闭侧滑菜单功能
+				document.getElementById('offCanvasHide').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas().close();
+				});
+				//主界面和侧滑菜单界面均支持区域滚动；
+				mui('#offCanvasSideScroll').scroll();
+				
+				mui('.search').on('tap','.search-btn',function(){
+					mui.openWindow({
+						url: 'search.html',  
+					    id: 'search.html'
+					});
+				});
+				mui('.ui-page').on('tap','.page-ul',function(){
+					mui.openWindow({
+						url: 'home2-1-details.html',  
+					    id: 'home2-1-details.html'
+					});
+				});
+			});
+			(function($) {
+				$.init();
+				var result1 = $('#pickDateBtn1')[0];
+				var result2 = $('#pickDateBtn2')[0];
+				var btns1 = $('.btn1');
+				var btns2 = $('.btn2');
+				btns1.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							result1.innerText = rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});
+				btns2.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							result2.innerText = rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+			$(function(){
+			//创建MeScroll对象
+			var mescroll = initMeScroll("mescroll", {
+				down:{
+					auto:true,//是否在初始化完毕之后自动执行下拉回调callback; 默认true
+					callback: downCallback, //下拉刷新的回调
+				},
+				up: {
+					auto:false,//初始化完毕,是否自动触发上拉加载的回调
+					isBoth: false, //上拉加载时,如果滑动到列表顶部是否可以同时触发下拉刷新;默认false,两者不可同时触发; 这里为了演示改为true,不必等列表加载完毕才可下拉;
+					callback: upCallback, //上拉加载的回调
+				}
+			});
+			
+			/*下拉刷新的回调 */
+			function downCallback(){
+				//加载轮播数据..
+				//...
+				//加载列表数据
+				getListDataFromNet(0, 1, function(data){
+					//联网成功的回调,隐藏下拉刷新的状态
+					mescroll.endSuccess();
+					//设置列表数据
+					//setListData(data, false);
+					//显示提示
+					$("#downloadTip").css("top","94px");
+					setTimeout(function () {
+						$("#downloadTip").css("top","44px");
+					},2000);
+				}, function(){
+					//联网失败的回调,隐藏下拉刷新的状态
+	                mescroll.endErr();
+				});
+			}
+			
+			/*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+			function upCallback(page){
+				//联网加载数据
+				console.log("page.num="+page.num);
+				getListDataFromNet(page.num, page.size, function(data){
+					//联网成功的回调,隐藏上拉加载的状态
+					mescroll.endSuccess(data.length);//传参:数据的总数; mescroll会自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+					//设置列表数据
+					setListData(data, true);
+				}, function(){
+					//联网失败的回调,隐藏上拉加载的状态
+	                mescroll.endErr();
+				});
+			}
+			
+			/*设置列表数据*/
+			function setListData(data, isAppend) {
+				var listDom=document.getElementById("newsList");
+				for (var i = 0; i < data.length; i++) {
+					var newObj=data[i];
+					
+					var str='<p>'+newObj.title+'</p>';
+					str+='<p class="new-content">'+newObj.content+'</p>';
+					var liDom=document.createElement("li");
+					liDom.innerHTML=str;
+					
+					if (isAppend) {
+						listDom.appendChild(liDom);//加在列表的后面,上拉加载
+					} else{
+						listDom.insertBefore(liDom, listDom.firstChild);//加在列表的前面,下拉刷新
+					}
+				}
+			}
+			
+			/*联网加载列表数据*/
+			var downIndex=0;
+			function getListDataFromNet(pageNum,pageSize,successCallback,errorCallback) {
+				//延时一秒,模拟联网
+                setTimeout(function () {
+                	try{
+                		var newArr=[];
+	                	if(pageNum==0){
+	                		//此处模拟下拉刷新返回的数据
+	                		downIndex++;
+	                		var newObj={title:"【新增话题"+downIndex+"】 新增话题", content:"新增话题的内容"};
+	                		newArr.push(newObj);
+	                	}else{
+	                		//此处模拟上拉加载返回的数据
+	                		for (var i = 0; i < pageSize; i++) {
+	                			var upIndex=(pageNum-1)*pageSize+i+1;
+	                			var newObj={title:"【话题"+upIndex+"】 标题标题标题", content:"内容内容内容"};
+	                			newArr.push(newObj);
+	                		}
+	                	}
+	                	//联网成功的回调
+	                	successCallback&&successCallback(newArr);
+                	}catch(e){
+                		//联网失败的回调
+                		errorCallback&&errorCallback();
+                	}
+                },2000)
+			}
+		});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home1-detail.css" />
+		<link rel="stylesheet" href="../css/mui.picker.all.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			/*日期选择设置*/
+			.mui-dtpicker-header{
+				background: #FFFFFF;
+			}
+			.mui-dtpicker-header button{
+				border: none;
+				background: transparent;
+				color: #545454;
+				font-size: 0.34rem;
+			}
+			.btn{
+				width: 45%;
+				/*border: 1px solid #979797;*/
+				font-size: 0.28rem;
+				color: #646464;
+				float: left;
+				background: url(../res/smicon/time.png)calc(85%) calc(45%) no-repeat;
+				background-size: 0.3rem 0.3rem;
+			}
+			.btn>label{
+				height: 0.6rem;
+				line-height: 0.6rem;
+			}
+			#pickerLi{
+				overflow: hidden;
+			}
+			#pickerLi>span{
+				height: 0.6rem;
+				line-height: 0.6rem;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">质检单详情</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="sec-tit">
+		    	基本信息
+		    </div>
+		    <div class="sec-body">
+		    	<ul class="sec-ul">
+		    		<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+		    		<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+		    		<li id="pickerLi">
+		    			<span>质检日期</span>
+		    			<div class="btn btn1"><label id='pickDateBtn1' class="add_r2">2016-10-11 09:30</label></div>
+		    		</li>
+		    		<li><span>是否矩工验收</span><label for="">验收</label></li>
+		    	</ul>
+		    	<img src="../res/home1/3.png" alt="" />
+		    </div>
+		    <div class="sec-tit">
+		    	质检明细
+		    </div>
+		    <div class="sec-body">
+		    	<ul class="sec-ul active">
+		    		<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+		    		<li><span>明细商品</span><label for="">TBB102</label></li>
+		    		<li><span>客户货号</span><label for="">PID102</label></li>
+		    		<li><span>品名</span><label for="">96系镀铜插销（吸塑）</label></li>
+		    		<li><span>单位</span><label for="">打</label></li>
+		    		<li>
+		    			<span style="width: 100%;">应质检</span>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">数量</span><label style="width: 1rem;" for="">600.00</label>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">箱数</span><label style="width: 1rem;" for="">15.00</label>
+		    		</li>
+		    		<li>
+		    			<span style="width: 100%;">实际质检</span>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">数量</span><label style="width: 1rem;" for="">32.00</label>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">箱数</span><label style="width: 1rem;" for="">3.00</label>
+		    		</li>
+		    		<li><span>装数</span><label for="">40.00</label></li>
+		    		<li><span>质检结论</span><label for="">合格</label></li>
+		    		<li><span>详细质检结论</span><label for="">详见质检照片</label></li>
+		    		<li><span>结果分类说明</span><label for="">详见质检照片</label></li>
+		    		<li><span>可入库数量</span><label for="">600.00</label></li>
+		    		<li>
+		    			<div class="img">
+		    				<img src="../res/img-upload/1.png" alt="" />
+		    				<span>DHAHSDSA-0001-正面</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/2.png" alt="" />
+		    				<span>DHAHSDSA-0001-反面</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/3.png" alt="" />
+		    				<span>DHAHSDSA-0001-左侧</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/4.png" alt="" />
+		    				<span>DHAHSDSA-0001-右侧</span>
+		    			</div>
+		    		</li>
+		    	</ul>
+		    	<ul class="sec-edit">
+		    		<li><img src="../res/home1-del/del-edit.png" alt="" /><span>编辑</span></li>
+		    		<li><img src="../res/home1-del/del-det.png" alt="" /><span>删除</span></li>
+		    		<li><img src="../res/home1-del/del-load.png" alt="" /><span>上传</span></li>
+		    		<li><img src="../res/home1-del/del-up.png" alt="" /><span>收起</span></li>
+		    	</ul>
+		    </div>
+		    <div class="sec-body">
+		    	<ul class="sec-ul">
+		    		<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+		    		<li><span>明细商品</span><label for="">TBB102</label></li>
+		    		<li><span>客户货号</span><label for="">PID102</label></li>
+		    		<li><span>品名</span><label for="">96系镀铜插销（吸塑）</label></li>
+		    		<li><span>单位</span><label for="">打</label></li>
+		    		<li>
+		    			<span style="width: 100%;">应质检</span>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">数量</span><label style="width: 1rem;" for="">600.00</label>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">箱数</span><label style="width: 1rem;" for="">15.00</label>
+		    		</li>
+		    		<li>
+		    			<span style="width: 100%;">实际质检</span>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">数量</span><label style="width: 1rem;" for="">32.00</label>
+		    			<span style="width: 1rem;margin-left: 0.3rem;">箱数</span><label style="width: 1rem;" for="">3.00</label>
+		    		</li>
+		    		<li><span>装数</span><label for="">40.00</label></li>
+		    		<li><span>质检结论</span><label for="">合格</label></li>
+		    		<li><span>详细质检结论</span><label for="">详见质检照片</label></li>
+		    		<li><span>结果分类说明</span><label for="">详见质检照片</label></li>
+		    		<li><span>可入库数量</span><label for="">600.00</label></li>
+		    		<li>
+		    			<div class="img">
+		    				<img src="../res/img-upload/1.png" alt="" />
+		    				<span>DHAHSDSA-0001-正面</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/2.png" alt="" />
+		    				<span>DHAHSDSA-0001-反面</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/3.png" alt="" />
+		    				<span>DHAHSDSA-0001-左侧</span>
+		    			</div>
+		    			<div class="img">
+		    				<img src="../res/img-upload/4.png" alt="" />
+		    				<span>DHAHSDSA-0001-右侧</span>
+		    			</div>
+		    		</li>
+		    	</ul>
+		    	<ul class="sec-edit">
+		    		<li><img src="../res/home1-del/del-edit.png" alt="" /><span>编辑</span></li>
+		    		<li><img src="../res/home1-del/del-det.png" alt="" /><span>删除</span></li>
+		    		<li><img src="../res/home1-del/del-load.png" alt="" /><span>上传</span></li>
+		    		<li><img src="../res/home1-del/del-down.png" alt="" /><span>展开</span></li>
+		    	</ul>
+		    </div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item mui-action-back">
+		        <span class="mui-tab-label">保存</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-tab-label">删除</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-tab-label">提交审批</span>
+		    </a>
+		</nav>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init({});
+			mui.ready(function(){
+				mui('.sec-edit').on('tap','li:nth-child(1)',function(){
+					mui.openWindow({
+						url: 'home1-detail-edit.html',  
+					    id: 'home1-detail-edit.html'
+					});
+				});
+				mui('.sec-edit').on('tap','li:nth-child(2)',function(){
+					var self = this;
+					if (mui.os.plus) {
+						plus.nativeUI.confirm("确定要删除本条质检明细？",function(e){
+							if(e.index == 0){
+								sel();
+							}
+						},"删除质检明细?",["确定","取消"]);
+					} 
+					function sel(){
+						self.parentNode.parentNode.parentNode.removeChild(self.parentNode.parentNode);
+					}
+				});
+				mui('.sec-edit').on('tap','li:nth-child(3)',function(){
+					mui.openWindow({
+						url: 'imgUpload.html',  
+					    id: 'imgUpload.html'
+					});
+				});
+				mui('.sec-edit').on('tap','li:nth-child(4)',function(){
+					var img = this.childNodes[0];
+					var par = this.parentNode;
+					var ul = par.previousElementSibling;
+					var text = this.querySelector('span');
+					if(!ul.classList.contains('active')){
+						img.setAttribute('src','../res/home1-del/del-up.png');
+						ul.classList.add('active');
+						text.innerText = '收起';
+					}else{
+						img.setAttribute('src','../res/home1-del/del-down.png');
+						ul.classList.remove('active');
+						text.innerText = '展开';
+					}
+				});
+//				mui('.mui-bar-tab').on('tap','a:nth-child(1)',function(){
+//					var self = this;
+//					self.addClass('mui-action-back');
+//				});
+				mui('.mui-bar-tab').on('tap','a:nth-child(2)',function(){
+					var self = this;
+					if (mui.os.plus) {
+						plus.nativeUI.confirm("确定要删除本条质检单详情？",function(e){
+							if(e.index == 0){
+								del();
+								setTimeout(function(){
+									mui.back();
+								},1000);
+							}
+						},"删除质检单详情?",["确定","取消"]);
+					} 
+					function del(){
+						self.parentNode.parentNode.querySelector('.mui-content').innerHTML = '';
+					}
+				});
+				mui('.mui-bar-tab').on('tap','a:nth-child(3)',function(){
+					mui.openWindow({
+						url:'home2-1.html',
+						id:'home2-1.html'
+					})
+				});
+			});
+			(function($) {
+				$.init();
+				var result1 = $('#pickDateBtn1')[0];
+				var btns1 = $('.btn1');
+				btns1.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result1.innerText = rs.text;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,518 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/person-choice.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.mui-pull-right{
+				position: relative;
+			}
+			.mui-pull-right>span{
+				width: 16px;
+				height: 16px;line-height: 16px;
+				background: rgba(50,50,50,0.95);
+				color: #FFFFFF;
+				border-radius: 50%;
+				text-align: center;
+				font-size: 12px;
+				position: relative;
+				top: -1px;
+			}
+			.search{
+				width: 100%;height: 50px;
+				background: #C9C9CE;
+				padding: 0.17rem 0.2rem;
+				overflow: hidden;
+			}
+			.search>input[type=text]{
+				width: 7.1rem;
+				height: 34px;line-height: 34px;
+				background: #FFFFFF;
+				background-image: url(../res/smicon/search-ipt.png);
+				background-position: center;
+				background-position-x: 2.9rem;
+				background-size: 0.3rem 0.3rem;
+				background-repeat: no-repeat;
+				border-radius: 0.08rem;
+				font-size: 0.28rem;color: #646464;
+				text-align: center;
+			}
+			.search>input::-webkit-input-placeholder{
+				font-size: 0.28rem;
+			}
+			.mui-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			#done.mui-disabled{
+				color: white;
+			}
+			.mui-action-back{color: white;}
+			.per_search{border: 0.125rem solid #D5D5D5;}
+			
+			.mui-table-view>.mui-indexed-list-item.active{
+				background: #FFEDC9;
+			}
+			.mui-table-view-cell:after{width: 9.531rem;}
+			.mui-indexed-list-inner{font-size: 0.375rem;padding-top: 50px;}
+			.tab_img{
+				width: 0.8rem;height: 0.8rem;
+				border-radius: 50%;
+				background:url(../res/per-change/man.png);
+				background-size: .8rem .8rem;
+				float: left;
+				margin-left: 0.312rem;
+			}
+			.tab_lab{
+				float: left;
+				margin-top: 0.156rem;
+				margin-left: 0.156rem;
+				font-size: 0.32rem;
+				color: #646464;
+			}
+			.tab_r{float: right;}
+			
+			.mui-indexed-list-item img{width: 0.468rem;height: 0.468rem;}
+		
+			
+			.no-checked1{
+				width: 0.3rem;height: 0.3rem;
+				float: left;margin-top: 0.312rem;
+				background: url(../res/smicon/edit-img-n.png);
+				background-size: 100%;
+			}
+			.no-checked2{
+				width: 0.3rem;height: 0.3rem;
+				float: left;margin-top: 0.312rem;
+				background: url(../res/smicon/edit-img-y.png);
+				background-size: 100%;
+			}
+			.mui-indexed-list-bar>.big{font-size: 0.48rem;color: #2DA5FF;}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">取消</a>
+		    <h1 class="mui-title">授权单据</h1>
+		    <a class="mui-action-back mui-pull-right">完成<span>0</span></a>
+		</header>
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="search mui-indexed-list-search mui-input-row mui-search">
+			    	<input type="text" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索"/>
+			    </div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner mui-scroll-wrapper">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul class="mui-table-view">
+						<li data-group="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
+						<li data-value="AKU" data-tags="AKeSu" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								张三
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="BPL" data-tags="ALaShanKou" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								阿拉山口机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="B" class="mui-table-view-divider mui-indexed-list-group">B</li>
+						<li data-value="BSD" data-tags="BaoShan" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								保山机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="BAV" data-tags="BaoTou" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								包头机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="C" class="mui-table-view-divider mui-indexed-list-group">C</li>
+						<li data-value="NBS" data-tags="ChangBaiShan" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								长白山机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="CGQ" data-tags="ChangChunLongJiaGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								长春龙嘉国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="D" class="mui-table-view-divider mui-indexed-list-group">D</li>
+						<li data-value="DLU" data-tags="DaLi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								大理机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="DLC" data-tags="DaLianZhouShuiZiGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								大连周水子国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="E" class="mui-table-view-divider mui-indexed-list-group">E</li>
+						<li data-value="DSN" data-tags="EErDuoSi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								鄂尔多斯机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="ENH" data-tags="EnShiXuJiaPing" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								恩施许家坪机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="G" class="mui-table-view-divider mui-indexed-list-group">G</li>
+						<li data-value="KOW" data-tags="GanZhouHuangJin" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								赣州黄金机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-value="GOQ" data-tags="GeErMu" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								格尔木机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="H" class="mui-table-view-divider mui-indexed-list-group">H</li>
+						<li data-value="HRB" data-tags="HaErBinTaiPingGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								哈尔滨太平国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="J" class="mui-table-view-divider mui-indexed-list-group">J</li>
+						<li data-value="TNA" data-tags="JiNanYaoQiangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								济南遥墙国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="K" class="mui-table-view-divider mui-indexed-list-group">K</li>
+						<li data-value="KHG" data-tags="KaShi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								喀什机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="L" class="mui-table-view-divider mui-indexed-list-group">L</li>
+						<li data-value="LXA" data-tags="LaSaGongGa" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								拉萨贡嘎机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="M" class="mui-table-view-divider mui-indexed-list-group">M</li>
+						<li data-value="NZH" data-tags="ManZhouLiXiJiao" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								满洲里西郊机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						
+						<li data-group="N" class="mui-table-view-divider mui-indexed-list-group">N</li>
+						<li data-value="KHN" data-tags="NanChangChangBeiGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								南昌昌北国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="P" class="mui-table-view-divider mui-indexed-list-group">P</li>
+						<li data-value="SYM" data-tags="PuErSiMao" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								普洱思茅机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-group="Q" class="mui-table-view-divider mui-indexed-list-group">Q</li>
+						<li data-value="NDG" data-tags="QiQiHaErSanJiaZi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								齐齐哈尔三家子机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="R" class="mui-table-view-divider mui-indexed-list-group">R</li>
+						<li data-value="RKZ" data-tags="RiKaZeHePing" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								日喀则和平机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						<li data-group="S" class="mui-table-view-divider mui-indexed-list-group">S</li>
+						<li data-value="SYX" data-tags="SanYaFengHuangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								三亚凤凰国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="T" class="mui-table-view-divider mui-indexed-list-group">T</li>
+						<li data-value="TCG" data-tags="TaCheng" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								塔城机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="W" class="mui-table-view-divider mui-indexed-list-group">W</li>
+						<li data-value="WXN" data-tags="WanZhouWuQiao" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								万州五桥机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="X" class="mui-table-view-divider mui-indexed-list-group">X</li>
+						<li data-value="XIY" data-tags="XiAnXianYangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								西安咸阳国际机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="Y" class="mui-table-view-divider mui-indexed-list-group">Y</li>
+						<li data-value="ENY" data-tags="YanAnErShiLiBao" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								延安二十里堡机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+						<li data-group="Z" class="mui-table-view-divider mui-indexed-list-group">Z</li>
+						<li data-value="ZHA" data-tags="ZhanJiang" class="mui-table-view-cell mui-indexed-list-item mui-left">
+							<div class="no-checked1 sel-change">
+								
+							</div>
+							<div class="tab_img">
+								
+							</div>
+							<label class="tab_lab">
+								湛江机场
+							</label>
+							<label for="" class="tab_lab tab_r">开发部经理</label>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function() {
+				mui('.mui-table-view').on('tap','.mui-indexed-list-item',function(){
+					var self = this.querySelector('.sel-change');
+					var num = parseInt(document.querySelector('.mui-pull-right').querySelector('span').innerText);
+					if(self.classList.contains('no-checked1')){
+						self.classList.remove('no-checked1');
+						self.classList.add('no-checked2');
+						this.style.color = '#646464';
+						self.parentNode.classList.add('active');
+					}else{
+						if(self.classList.contains('no-checked2')){
+							self.classList.remove('no-checked2');
+							self.classList.add('no-checked1');
+							this.style.color = '#323232';
+							self.parentNode.classList.remove('active');
+						}
+					}
+					document.querySelector('.mui-pull-right').querySelector('span').innerText = document.querySelectorAll('.no-checked2').length;
+				});
+				
+				var list = document.getElementById('list');
+				window.indexedList = new mui.IndexedList(list);
+			});
+		</script>
+	</body>
+
+</html>

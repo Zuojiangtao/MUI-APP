@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			body{
+				background: #FFFFFF;
+			}
+			.mui-content{
+				background: #FFFFFF;
+				padding-left: 0.3rem;padding-right: 0.3rem;
+			}
+			.appr-give{
+				width: 100%;min-height: 3.1rem;
+				margin-top: 0.3rem;
+				position: relative;
+				border-bottom: 1px solid #DADADA;
+			}
+			.appr-give>ul{
+				width: 100%;
+				padding-left: 0.2rem;
+			}
+			.appr-give>ul>li{
+				width: 100%;min-height: 0.32rem;
+				margin-bottom: 0.2rem;
+				overflow: hidden;
+			}
+			.appr-give>ul>li.give-sp{
+				margin-bottom: 0.1rem;
+			}
+			.appr-give>ul>li>span,.appr-give>ul>li>label{
+				width: auto;height: 0.32rem;line-height: 0.32rem;
+				font-size: 0.32rem;
+				color: #323232;
+			}
+			.appr-give>ul>li.give-sp>span,.appr-give>ul>li.give-sp>label{
+				font-size: 0.28rem;
+				color: #969696;
+			}
+			.appr-give>img{
+				width: 1rem;height: 1rem;
+				position: absolute;
+				top: 0;right: 0;
+			}
+			
+			.appr-give.stop>ul>li>span,.appr-give.stop>ul>li>label,
+			.appr-give.stop>ul>li>p{
+				color: #c8c8c8;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">审批授权</h1>
+		    <a class="mui-action-go mui-pull-right">新增</a>
+		</header>
+		<div class="mui-content">
+		    <div class="appr-give">
+		    	<ul>
+		    		<li><span>张三</span></li>
+		    		<li><span>授权人：</span><label for="">张鹏煜</label></li>
+		    		<li class="give-sp">
+		    			<span>启用时间：</span><label for="">2016-10-11 09:30</label>
+		    			
+		    		</li>
+		    		<li class="give-sp">
+		    			<span>停用时间：</span><label for="">2016-10-11 09:30</label>
+		    		</li>
+		    		<li>
+		    			<p>
+		    				授权原因授权原因授权原因授权原因授权原因授权原
+						因授权原因授权原因
+		    			</p>
+		    		</li>
+		    	</ul>
+		    	<img src="../res/appr-add/1.png" alt="" />
+		    </div>
+		    <div class="appr-give">
+		    	<ul>
+		    		<li><span>张三</span></li>
+		    		<li><span>授权人：</span><label for="">张鹏煜</label></li>
+		    		<li class="give-sp">
+		    			<span>启用时间：</span><label for="">2016-10-11 09:30</label>
+		    			
+		    		</li>
+		    		<li class="give-sp">
+		    			<span>停用时间：</span><label for="">2016-10-11 09:30</label>
+		    		</li>
+		    		<li>
+		    			<p>
+		    				授权原因授权原因授权原因授权原因授权原因授权原
+						因授权原因授权原因
+		    			</p>
+		    		</li>
+		    	</ul>
+		    	<img src="../res/appr-add/1.png" alt="" />
+		    </div>
+		    <div class="appr-give stop">
+		    	<ul>
+		    		<li><span>张三</span></li>
+		    		<li><span>授权人：</span><label for="">张鹏煜</label></li>
+		    		<li class="give-sp">
+		    			<span>启用时间：</span><label for="">2016-10-11 09:30</label>
+		    			
+		    		</li>
+		    		<li class="give-sp">
+		    			<span>停用时间：</span><label for="">2016-10-11 09:30</label>
+		    		</li>
+		    		<li>
+		    			<p>
+		    				授权原因授权原因授权原因授权原因授权原因授权原
+						因授权原因授权原因
+		    			</p>
+		    		</li>
+		    	</ul>
+		    	<img src="../res/appr-add/2.png" alt="" />
+		    </div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.mui-bar-nav').on('tap','.mui-pull-right',function(){
+					mui.openWindow({
+						url: 'home2-3-add.html',  
+					    id: 'home2-3-add.html'
+					})
+				});
+			});
+		</script>
+	</body>
+
+</html>

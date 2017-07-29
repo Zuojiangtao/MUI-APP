@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home1.css" />
+		<link rel="stylesheet" href="../css/wrapper.css" />
+		<link rel="stylesheet" href="../css/mui.picker.all.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			.search{
+				top: 0;
+			}
+			.mui-content{
+				top: 49px;
+			}
+			/*日期选择设置*/
+			.mui-dtpicker-header{
+				background: #FFFFFF;
+			}
+			.mui-dtpicker-header button{
+				border: none;
+				background: transparent;
+				color: #545454;
+				font-size: 0.34rem;
+			}
+			.btn{
+				width: 91.5%;height: 0.6rem;
+				border: 1px solid #979797;
+				font-size: 0.28rem;
+				color: #646464;
+				float: left;
+				margin-bottom: 0.1rem;margin-left: 0.1rem;
+				padding-left: 0.2rem;
+				background: url(../res/smicon/time.png)calc(95%) center no-repeat;
+				background-size: 0.3rem 0.3rem;
+			}
+			.btn>label{
+				height: 0.6rem;
+				line-height: 0.6rem;
+			}
+			#pickerLi{
+				overflow: hidden;
+			}
+			#pickerLi>span{
+				height: 0.6rem;
+				line-height: 0.6rem;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-slide-in">
+		  	<!-- 菜单容器 -->
+		  	<aside class="mui-off-canvas-right">
+		  		<!--侧滑导航-->
+		    	<div class="wrapper-section mui-scroll-wrapper">
+		      		<div class="mui-scroll">
+			        	<!-- 菜单具体展示内容 -->
+			        	<ul>
+			        		<li>
+			        			<span>工厂</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        				<option value="北京南北天地客户股份有限公司">北京南北天地客户股份有限公司</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li><span>采购合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li><span>销售合同号</span><input type="text" value="HD1700001BR"/></li>
+			        		<li>
+			        			<span>业务员</span>
+			        			<div class="select">
+			        				<select name="">
+				        				<option value="张三">张三</option>
+				        				<option value="张三">2</option>
+				        				<option value="张三">3</option>
+				        			</select>
+			        			</div>
+			        		</li>
+			        		<li id="pickerLi">
+			        			<span style="width: 100%;">制单日期</span>
+			        			<span>从</span><div class="btn btn1"><label id='pickDateBtn1' class="add_r2">2016-10-11 09:30</label></div>
+		    					<div style="width: 0;height: 0;clear: both;"></div>
+		    					<span>到</span><div class="btn btn2"><label id='pickDateBtn2' class="add_r2">2016-10-11 09:30</label></div>
+			        		</li>
+			        	</ul>
+			      	</div>
+		    	</div>
+		    	<nav class="mui-bar mui-bar-tab">
+		    	    <a class="mui-tab-item mui-active">
+		    	        <span class="mui-tab-label">重置</span>
+		    	    </a>
+		    	    <!--完成按钮增加关闭侧滑菜单功能-->
+		    	    <a class="mui-tab-item" id="offCanvasHide">
+		    	        <span class="mui-tab-label">完成</span>
+		    	    </a>
+		    	    </a>
+		    	</nav>
+		  	</aside>
+		  	<!-- 主页面容器 -->
+		  	<div class="mui-inner-wrap">
+		  		<!--<header class="mui-bar mui-bar-nav">
+		    		<a class="mui-action-back mui-pull-left">返回</a>
+				    <h1 class="mui-title">质检单</h1>
+				</header>-->
+				<div class="search">
+					<button class="search-btn">搜索</button>
+					<button class="mui-action-menu" id="offCanvasShow">筛选</button>
+				</div>
+				
+				<div class="mui-content mui-scroll-wrapper">
+					<!--主页面内容-->
+			    	<div class="mui-scroll">
+			    			
+						<div class="qlt">
+							<div class="qlt-li">
+								<ul>
+									<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+									<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+									<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+									<li><span>合同金额</span><label for="">￥10000.00</label></li>
+									<li><span>质检日期</span><label for="">2017-05-01</label></li>
+									<li><span>制单人</span><label for="">张三</label></li>
+									<li><span>制单日期</span><label for="">2017-05-01</label></li>
+									<li><span>质检结论</span><label for="">合格</label></li>
+									<li><span>是否矩工验收</span><label for="">验收</label></li>
+								</ul>
+								<img src="../res/home1/1.png" alt="" />
+							</div>
+							<div class="qlt-li">
+								<ul>
+									<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+									<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+									<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+									<li><span>合同金额</span><label for="">￥10000.00</label></li>
+									<li><span>质检日期</span><label for="">2017-05-01</label></li>
+									<li><span>制单人</span><label for="">张三</label></li>
+									<li><span>制单日期</span><label for="">2017-05-01</label></li>
+									<li><span>质检结论</span><label for="">合格</label></li>
+									<li><span>是否矩工验收</span><label for="">验收</label></li>
+								</ul>
+								<img src="../res/home1/2.png" alt="" />
+							</div>
+							<div class="qlt-li">
+								<ul>
+									<li><span>质检登记号</span><label for="">HD/BZ-PG/QC-17270</label></li>
+									<li><span>供应商</span><label for="">北京南北天地科技股份有限公司</label></li>
+									<li><span>采购合同号</span><label for="">EXPS170531/HPM-001</label></li>
+									<li><span>合同金额</span><label for="">￥10000.00</label></li>
+									<li><span>质检日期</span><label for="">2017-05-01</label></li>
+									<li><span>制单人</span><label for="">张三</label></li>
+									<li><span>制单日期</span><label for="">2017-05-01</label></li>
+									<li><span>质检结论</span><label for="">合格</label></li>
+									<li><span>是否矩工验收</span><label for="">验收</label></li>
+								</ul>
+								<img src="../res/home1/3.png" alt="" />
+							</div>
+						</div>
+		    		
+		    		</div>
+				</div>
+				
+				<!--遮罩蒙版 -->
+				<div class="mui-off-canvas-backdrop"></div>
+		  	</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig:{
+					hold:true,
+   					release:true
+				}
+			});
+			mui.ready(function(){
+				document.getElementById('offCanvasShow').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas('show');
+				});
+				//完成按钮增加关闭侧滑菜单功能
+				document.getElementById('offCanvasHide').addEventListener('tap', function() {
+					mui('.mui-off-canvas-wrap').offCanvas().close();
+				});
+				//主界面和侧滑菜单界面均支持区域滚动；
+				mui('.mui-scroll-wrapper').scroll();
+				
+				mui('.qlt').on('hold','.qlt-li',function(){
+					var self = this;
+					self.classList.add('active');
+				});
+				mui('.qlt').on('release','.qlt-li',function(){
+					var self = this;
+					self.classList.remove('active');
+				});
+				mui('.search').on('tap','.search-btn',function(){
+					mui.openWindow({
+						url: 'search.html',  
+					    id: 'search.html'
+					});
+				});
+				mui('.qlt').on('tap','.qlt-li',function(){
+					mui.openWindow({
+						url: 'home1-detail.html',  
+					    id: 'home1-detail.html'
+					});
+				});
+//				function refresh(){
+//					var h = mui('.mui-scroll-wrapper').scroll().y;
+//					var p = mui('#downloadTip');
+//					var gif = mui('#refresh');
+//					if (h >= 60) {
+//						console.log(1);
+//						gif.classList.remove('mui-hidden');
+//						mui("#downloadTip").style.top = 44+'px';
+//						setTimeout(function () {
+//							mui("#downloadTip").style.top = 20+'px';
+//						},2000);
+//						
+//					} 
+//				}
+//				refresh();
+			});
+			(function($) {
+				$.init();
+				var result1 = $('#pickDateBtn1')[0];
+				var result2 = $('#pickDateBtn2')[0];
+				var btns1 = $('.btn1');
+				var btns2 = $('.btn2');
+				btns1.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							result1.innerText = rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});
+				btns2.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							result2.innerText = rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

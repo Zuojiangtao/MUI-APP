@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">首页</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" href="html/home0.html">
+	        <span class="mui-icon"></span>
+	        <span class="mui-tab-label">首页</span>
+	    </a>
+	    <a class="mui-tab-item" href="html/home1.html">
+	        <span class="mui-icon"></span>
+	        <span class="mui-tab-label">质检单</span>
+	    </a>
+	    <a class="mui-tab-item" href="html/home2.html">
+	        <span class="mui-icon"></span>
+	        <span class="mui-tab-label">去审批</span>
+	    </a>
+	    <a class="mui-tab-item" href="html/home3.html">
+	        <span class="mui-icon"></span>
+	        <span class="mui-tab-label">我的</span>
+	    </a>
+	</nav>
+	
+	<script type="text/javascript" charset="utf-8">
+      	mui.init({
+			swipeBack: false
+		});
+		var navTitle;
+		var mainWebview;
+		var curtempWebview;
+		
+		var barItemWebviewArray = [];
+		var barItemArray = ['html/home0.html','html/home1.html','html/home2.html','html/home3.html'];
+		mui.plusReady(function(){
+			//获取当前title和当前webview
+			navTitle = document.querySelector('.mui-title');
+			
+			mainWebview = plus.webview.currentWebview();
+			
+			plus.navigator.setStatusBarBackground( "#FFAA00" );
+			
+			//设置只支持竖屏幕显示
+			plus.screen.lockOrientation("portrait-primary");
+			
+			//初始化与index有关的页面
+			initIndexView();
+			
+			//检测是否需要显示导航页面todo
+			
+			//判断是否已经登陆,若没有登陆将预加载登陆页面
+			judgelogin();
+			
+			//预加载父子模版
+			//initTemplate();
+		});
+		
+		//初始化
+		function initIndexView(){
+			//初始化所有bar页面
+			inittabitemWebviews();
+			//添加bar点击事件接受
+			tapBaritem();
+		}
+		
+		//初始化所有bar页面
+		function inittabitemWebviews(){
+			for (var i = 0; i < barItemArray.length; i++) {
+				barItemWebviewArray[i] = mui.preload({
+					id:barItemArray[i],
+					url:barItemArray[i],
+					styles:{
+						top:'44px',
+						bottom: '51px',
+						left: '0px',
+						bounce: 'vertical'
+					},
+					waiting:{
+						autoShow:false
+					}
+				});
+				barItemWebviewArray[i].hide();
+				mainWebview.append(barItemWebviewArray[i]);
+			}
+			barItemWebviewArray[0].show();
+			curBarItemWebview = barItemWebviewArray[0];
+		}
+		
+		//添加点击事件
+		function tapBaritem(){
+			mui('.mui-bar-tab').on('tap','.mui-tab-item',function(){
+				var baritem = this;
+				var baritemurl = baritem.getAttribute('href');
+				if (!~curBarItemWebview.getURL().indexOf(baritemurl)) {
+					for (var i = 0; i < barItemArray.length; i++) {
+						if (barItemArray[i] == baritemurl) {
+							//更改头部名字
+							navTitle.innerText = baritem.children[baritem.children.length-1].innerText;
+							//切换baritemwebview
+							barItemWebviewArray[i].show();
+							curBarItemWebview = barItemWebviewArray[i];
+							break;
+						}
+					}
+				}
+			});
+		}
+		
+		function judgelogin() {
+			//测试语句
+			localStorage.removeItem('user');
+			//判断是否已经登录成功
+			//localstorage在页面关闭的时候也同样存在，sessionstorage页面关闭数据不存在
+			if (!localStorage.getItem('user')) {
+				mui.preload({
+					url:'login.html',
+					id:'login.html',
+					styles:{
+						top:'0px',
+						bottom:'0px'
+					}
+				});
+			}
+		}
+    </script>
+</body>
+</html>

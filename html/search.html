@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script src="../js/common.js"></script>
+		<style>
+			body,.mui-content{
+				background: #F9F9F9;
+			}
+			.search{
+				width: 100%;height: 1rem;
+				border-bottom: 1px solid #DADADA;
+				background: #F9F9F9;
+				padding-left: 0.22rem;
+			}
+			.search>#ipt{
+				width: 80%;height: 0.56rem;
+				border: 1px solid #DADADA;
+				border-radius: 4px;
+				float: left;
+				margin-top: 0.22rem;
+				position: relative;
+			}
+			.search>#ipt>input[type=search]{
+				width: 5.78rem;
+				height: 100%;
+				background: url(../res/smicon/search-ipt.png) center center no-repeat;
+				background-position-x: 0.16rem;
+				background-size: 0.26rem 0.26rem;
+				padding-left: 0.44rem;
+				font-size: 0.28rem;
+				margin: 0;
+			}
+			input[type=search]{ text-align: left;}
+			.search>#ipt>span{
+				width: 0.3rem;line-height: 0.3rem;
+				background: #545454;
+				color: #FFFFFF;
+				font-size: 0.24rem;
+				text-align: center;
+				position: absolute;
+				top: 0.13rem;
+				right: 0.11rem;
+				border-radius: 50%;
+			}
+			.search>span{
+				width: 20%;height: 1rem;
+				line-height: 1rem;
+				font-size: 0.32rem;
+				color: #323232;
+				float: left;
+				text-align: center;
+			}
+			.tips{
+				width: 6.5rem;
+				padding-left: 0.5rem;padding-right: 0.5rem;
+				margin: 1rem auto 0;
+				border-top: 1px solid #DADADA;
+				position: relative;
+			}
+			.tips span{
+				font-size: 0.24rem;
+				color: #969696;
+			}
+			.tips>span{
+				display: inline-block;
+				position: absolute;
+				top: -10px;
+				left: 32%;
+				background: #F9F9F9;
+			}
+			.tips>ul{
+				width: 100%;overflow: hidden;
+			}
+			.tips>ul>li{
+				width: 0.8rem;height: auto;
+				float: left;
+				margin-left: .85rem;margin-top: 1rem;
+			}
+			.tips>ul>li>img{
+				width: 0.6rem;height: 0.6rem;
+			}
+			
+			.g{
+				width: 100%;
+				padding: 0.2rem 0.4rem 0;
+			}
+			.g>span{
+				width: auto;
+				font-size: 0.24rem;
+				color: #969696;
+			}
+			.g>img{
+				display: block;
+				width: 3rem;height: 3rem;
+				margin: 0.4rem auto 0;
+			}
+			.g>div{
+				width: 100%;
+				text-align: center;
+			}
+			.g>div>span,.g>div>label{
+				font-size: 0.32rem;
+				color: #646464;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">搜索</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="search">
+		    	<div id="ipt">
+		    		<input type="search" id="searchIpt"/>
+		    		<span class="mui-input-clear mui-hidden" id="cancel">×</span>
+		    	</div>
+		    	<span class="" id="ser-can">取消</span>
+		    </div>
+		    
+		    <!--搜索结果条目显示-->
+		    <div class="tips">
+		    	<span>您可以按以下字段搜索</span>
+		    	<ul>
+		    		<li><img src="../res/search/3.png" alt="" /><span>主题</span></li>
+		    		<li><img src="../res/search/1.png" alt="" /><span>部门</span></li>
+		    		<li><img src="../res/search/2.png" alt="" /><span>制单员</span></li>
+		    	</ul>
+		    </div>
+		    
+		 	<!--搜索无结果-->
+		    <div class="g mui-hidden">
+		    	<span>搜索结果：共0条</span><br />
+		    	<img src="../res/search/0.png" alt="" />
+		    	<div>
+		    		<span>未搜索到“</span><label for="">Sketch</label><span>”相关结果</span>
+		    	</div>
+		    </div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				document.getElementById('searchIpt').focus();
+				
+				//软键盘搜索监听
+				function plusReady(){
+					document.getElementById("searchIpt").addEventListener("keydown",function(e){ 
+					 	var e = event || window.event || arguments.callee.caller.arguments[0];
+					 	if(e && e.keyCode == 13){
+					 		document.activeElement.blur();//隐藏软键盘 
+					 		mui('.tips').classList.add('mui-hidden');
+					 		mui('.g').classList.remove('mui-hidden');
+					 	}else{
+					 		plus.nativeUI.toast('搜索关键字不能为空！');
+					 	}
+				    },false); 
+				    
+				};
+				
+				document.getElementById('searchIpt').addEventListener('input',function(){
+					var ipt = this;
+					var text = ipt.value;
+					var btn = document.getElementById("ser-can");
+					var span = document.getElementById("cancel");
+					if(text == ''){
+						btn.innerText = '取消';
+						span.classList.add('mui-hidden');
+						btn.classList.add('mui-action-back');
+					}else{
+						btn.innerText = '搜索';
+						span.classList.remove('mui-hidden');
+					}
+					
+					span.addEventListener('tap',function(){
+						ipt.value = '';
+						this.classList.add('mui-hidden');
+						btn.innerText = '取消';
+					},false);
+				},false);
+				
+				document.getElementById("ser-can").addEventListener('tap',function(){
+					var ipt = document.getElementById('searchIpt').value;
+			    	document.querySelector('.tips').classList.add('mui-hidden');
+				 	document.querySelector('.g').classList.remove('mui-hidden');
+				 	document.querySelector('.g>div>label').innerText = ipt;
+			    },false);
+			});
+		</script>
+	</body>
+
+</html>

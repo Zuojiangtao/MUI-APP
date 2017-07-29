@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/selPosition.css" />
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-pull-left">返回</a>
+		    <h1 class="mui-title">选择职位</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="search">
+		    	<input type="text" placeholder="搜索"/>
+		    </div>
+		    <ul class="selUl">
+		    	<li class="active">张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    	<li>张 三</li>
+		    </ul>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item">
+		        <span class="mui-tab-label">确认</span>
+		    </a>
+		</nav>
+		<!--审批记录加载动画-->
+		<div class="fixed mui-hidden">
+			<div class="img">
+				<!--<img src="../res/gif/1.gif" alt="" />-->
+				<span>审批记录加载中…</span>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				mui('.selUl').on('tap','li',function(){
+					var self = this;
+					var siblings = self.parentNode.querySelectorAll('li');
+					for (var i = 0;i < siblings.length;i ++) {
+						siblings[i].classList.remove('active');
+					}
+					self.classList.add('active');
+				});
+				
+				mui('.mui-bar-tab').on('tap','.mui-tab-item',function(){
+					var self = this;
+					var fixed = document.querySelector('.fixed');
+					if(fixed.classList.contains('mui-hidden')){
+						fixed.classList.remove('mui-hidden');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

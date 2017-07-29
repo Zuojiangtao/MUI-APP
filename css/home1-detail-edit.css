@@ -1,0 +1,88 @@
+#sec-ul{
+	width: 100%;height: auto;
+	overflow: hidden;
+	margin-top: 0.2rem;
+	padding-left: 0.3rem;padding-bottom: 0.2rem;
+	background: #FFFFFF;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+}
+#sec-ul>li{
+	width: 100%;min-height: 0.77rem;
+	border-bottom: 1px solid #C8C8C8;
+	overflow: hidden;
+}
+#sec-ul>li:last-child{
+	padding-bottom: 0.2rem;
+}
+#sec-ul>li>span{
+	width: auto;
+	line-height: 0.77rem;
+	font-size: 0.28rem;
+	font-weight: bold;
+	color: #323232;
+	display: inline-block;
+	float: left;
+}
+#sec-ul>li>span.spRed{
+	color: #FF0000;
+}
+#sec-ul>li>label,
+#sec-ul>li>input{
+	margin-left: 0.2rem;
+	color: #646464;
+	font-size: 0.28rem;
+}
+#sec-ul>li>label{line-height: 0.77rem;}
+#sec-ul>li>input[type=text]{
+	display: inline-block;
+	width: 4rem;
+	height: 0.77rem;line-height: 0.77rem;
+	list-style: none;
+	border: none;
+	float: left;
+	margin: 0;padding: 0;
+	padding-left: 0.1rem;
+}
+#sec-ul>li>button{
+	display: inline-block;
+	width: 1.2rem;
+	height: 0.44rem;line-height: 0.44rem;
+	font-size: 0.28rem;
+	border: 1px solid #969696;
+	border-radius: 2px;
+	overflow: hidden;
+	margin-top: 0.16rem;margin-left: 0.3rem;
+}
+#sec-ul>li>#sec-btn-1.active{
+	border: 1px solid #3AD027;
+	color: #3AD027;
+}
+#sec-ul>li>#sec-btn-2.active{
+	border: 1px solid #FF0000;
+	color: #FF0000;
+}
+.img{
+	width: 1.5rem;height: auto;
+	float: left;
+	margin-left: 0.2rem;margin-top: 0.2rem;
+	overflow: hidden;
+	border: 1px solid #DADADA;
+	position: relative;
+}
+.img:first-child{ margin-left: 0;}
+.img>img.s-img{
+	width: 1.5rem;height: 1.5rem;
+}
+.img>img.m-img{
+	width: .3rem;height: .3rem;
+	position: absolute;
+	top: 0.05rem;
+	right: 0.05rem;
+}
+#imgUpload>img{
+	width: 1.5rem;height: 1.5rem;
+}
+.img>span{
+	font-size: 0.24rem;
+	color: #969696;
+}

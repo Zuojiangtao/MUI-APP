@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/home2.css" />
+		<script src="../js/common.js"></script>
+		<style type="text/css">
+			header .mui-pull-right{
+				line-height: 50px;
+			}
+			header .mui-pull-right>img{
+				width: 0.4rem;height: 0.4rem;
+			}
+			.fixed{
+				width: 100%;height: 100%;
+				position: fixed;
+				top: 0;left: 0;
+				z-index: 2;
+				background: rgba(0,0,0,0.2);
+			}
+			.fixed>.img{
+				width: 3rem;height: 3rem;
+				background: url(../res/gif/1.gif) center center no-repeat;
+				background-size: 3rem 3rem;
+				margin: 4.6rem auto 0;
+			}
+			.fixed>.img>span{
+				width: 100%;height: auto;
+				font-size: 0.32rem;
+				margin: 2.28rem auto 0;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="nav">
+				<li><img src="../res/home2/appr-1.png" alt="" /><span>待我审批</span><span class="num" id="num">99</span></li>
+				<li><img src="../res/home2/appr-2.png" alt="" /><span>审批历史记录</span></li>
+				<li><img src="../res/home2/appr-3.png" alt="" /><span>审批授权</span></li>
+			</ul>
+			
+			<div class="ui-page">
+				<div class="page-ul">
+					<ul>
+						<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+						<li><span>业务归属</span><label for="">张三</label></li>
+						<li><span>审批人</span><label for="">王五</label></li>
+						<li><span>制单日期</span><label for="">2017-05-01</label></li>
+						<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+						<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+					</ul>
+					<img src="../res/appr-history/appr-y.png" alt="" />
+				</div>
+				<div class="page-ul">
+					<ul>
+						<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+						<li><span>业务归属</span><label for="">张三</label></li>
+						<li><span>审批人</span><label for="">王五</label></li>
+						<li><span>制单日期</span><label for="">2017-05-01</label></li>
+						<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+						<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+					</ul>
+					<img src="../res/appr-history/appr-y.png" alt="" />
+				</div>
+				<div class="page-ul">
+					<ul>
+						<li><span>主题</span><label for="">HD/BZ-PG/QC-17270</label></li>
+						<li><span>业务归属</span><label for="">张三</label></li>
+						<li><span>审批人</span><label for="">王五</label></li>
+						<li><span>制单日期</span><label for="">2017-05-01</label></li>
+						<li><span>金额</span><label for="">1000.00 （USD）</label></li>
+						<li><span>最新审批日期：</span><label for="">2017-05-01</label></li>
+					</ul>
+					<img src="../res/appr-history/appr-y.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<!--审批记录加载动画-->
+		<div class="fixed mui-hidden">
+			<div class="img">
+				<!--<img src="../res/gif/1.gif" alt="" />-->
+				<span>页面加载中…</span>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function(){
+				//监听审批数值，如果大于99则为...
+				var self = document.getElementById('num');
+				var num = parseInt(self.innerText);
+				if(num > 99){
+					self.innerText = '...';
+				}
+				mui('.nav').on('tap','li:first-child',function(){
+//					var fixed = document.querySelector('.fixed');
+//					fixed.classList.remove('mui-hidden');
+					setTimeout(function(){
+						mui.openWindow({
+						url: 'home2-1.html',  
+					    id: 'home2-1.html'
+					});
+					},500);
+					//window.clearTimeout(s);
+					
+				});
+				mui('.nav').on('tap','li:nth-child(2)',function(){
+//					var fixed = document.querySelector('.fixed');
+//					fixed.classList.remove('mui-hidden');
+					setTimeout(function(){
+						mui.openWindow({
+							url: 'home2-2.html',  
+						    id: 'home2-2.html'
+						});
+					},500);
+				});
+				mui('.nav').on('tap','li:nth-child(3)',function(){
+//					var fixed = document.querySelector('.fixed');
+//					fixed.classList.remove('mui-hidden');
+					setTimeout(function(){
+						mui.openWindow({
+							url: 'home2-3.html',  
+						    id: 'home2-3.html'
+						});
+					},500);
+				});
+				mui('.ui-page').on('tap','.page-ul',function(){
+					mui.openWindow({
+						url: 'home2-1-details.html',  
+					    id: 'home2-1-details.html'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>
