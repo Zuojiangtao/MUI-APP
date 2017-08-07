@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -105,6 +105,8 @@
 						if (barItemArray[i] == baritemurl) {
 							//更改头部名字
 							navTitle.innerText = baritem.children[baritem.children.length-1].innerText;
+							//先预加载子页面，防止出现不适配的问题
+							barItemWebviewArray[i].reload();
 							//切换baritemwebview
 							barItemWebviewArray[i].show();
 							curBarItemWebview = barItemWebviewArray[i];
